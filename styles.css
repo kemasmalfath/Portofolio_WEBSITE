@@ -341,6 +341,22 @@ h2 {
   color: #3282b8;
 }
 
+.contact-item i.fas.fa-envelope {
+  color: #e74c3c; /* red */
+}
+
+.contact-item i.fas.fa-phone {
+  color: #27ae60; /* green */
+}
+
+.contact-item i.fab.fa-linkedin {
+  color: #0077b5; /* linkedin blue */
+}
+
+.contact-item i.fab.fa-github {
+  color: #333333; /* dark gray */
+}
+
 /* Responsive Design */
 @media screen and (max-width: 768px) {
   .hamburger {
@@ -411,4 +427,22 @@ h2 {
   .skill-item i {
     font-size: 2rem;
   }
+}
+
+.contact-item i.fab.fa-instagram {
+  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.contact-item i.fab.fa-tiktok {
+  background: linear-gradient(45deg, #69C9D0, #EE1D52);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.contact-item i.fab.fa-youtube {
+  background: linear-gradient(45deg, #FF0000, #FF6347);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
