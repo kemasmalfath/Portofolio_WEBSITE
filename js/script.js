@@ -111,7 +111,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Typing Effect for Tagline ---
     const typingEffect = () => {
         const typingTextElement = document.querySelector('.typing-text');
-        const phrases = ["Pengembang Web", "Desainer UI/UX", "Kreator Konten", "Pecinta Teknologi"];
+        const phrases = ["Pengembang Web", "Desainer UI/UX", "Public Speaker", "Pecinta Teknologi"];
         let phraseIndex = 0;
         let charIndex = 0;
         let isDeleting = false;
