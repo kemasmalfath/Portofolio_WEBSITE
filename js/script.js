@@ -5,6 +5,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const nav = document.querySelector('.nav-links');
         const navItems = document.querySelectorAll('.nav-links li');
         const navbar = document.querySelector('.navbar');
+        const heroSection = document.getElementById('hero'); // Added for dynamic hero height
+        const heroHeight = heroSection ? heroSection.offsetHeight : 0; // Get hero height dynamically
 
         burger.addEventListener('click', () => {
             // Toggle Nav
@@ -33,38 +35,76 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Change navbar background on scroll
         window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) { // Adjust scroll threshold as needed
-                navbar.style.backgroundColor = 'rgba(33, 37, 41, 0.98)';
-                navbar.style.boxShadow = '0 2px 15px rgba(0, 0, 0, 0.2)';
+            // Use the 'scrolled' class in CSS for styling, more maintainable
+            if (window.scrollY > heroHeight / 2) { // Use dynamic hero height for threshold
+                navbar.classList.add('scrolled');
             } else {
-                navbar.style.backgroundColor = 'rgba(33, 37, 41, 0.95)';
-                navbar.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
+                navbar.classList.remove('scrolled');
             }
         });
     };
 
-    // --- Active Nav Link on Scroll ---
-    const highlightNavLink = () => {
+    // --- Active Nav Link on Scroll and Fade-in Animation ---
+    // Consolidated this from separate functions for better performance with IntersectionObserver
+    const setupScrollAnimationsAndNavHighlight = () => {
         const sections = document.querySelectorAll('main section');
         const navLinks = document.querySelectorAll('.nav-item');
+        const navbar = document.querySelector('.navbar'); // Get navbar reference for offset
 
-        window.addEventListener('scroll', () => {
-            let current = '';
+        const observerOptions = {
+            root: null,
+            // Adjust rootMargin based on navbar height to activate sections correctly
+            // Example: `-${navbar.offsetHeight + 10}px 0px -20% 0px`
+            // This pulls the activation point up by navbar height + some extra, and allows bottom 20% to be off screen
+            rootMargin: `-${navbar.offsetHeight + 10}px 0px -20% 0px`,
+            threshold: 0 // Activate as soon as any part of the element enters
+        };
 
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop - navbar.offsetHeight - 20; // Adjust for fixed nav
-                const sectionHeight = section.clientHeight;
-                if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
-                    current = section.getAttribute('id');
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                const targetId = entry.target.getAttribute('id');
+
+                if (entry.isIntersecting) {
+                    // Add 'active' class for general section fade-in
+                    entry.target.classList.add('active');
+
+                    // Highlight active navigation link
+                    navLinks.forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === `#${targetId}`) {
+                            link.classList.add('active');
+                        }
+                    });
+
+                    // Animate timeline items for 'experience' and 'education' sections
+                    if (targetId === 'experience' || targetId === 'education') {
+                        const timelineItems = entry.target.querySelectorAll('.timeline-item');
+                        timelineItems.forEach((item, index) => {
+                            // Only animate if not already active to prevent re-animation on scroll up/down
+                            if (!item.classList.contains('active')) {
+                                setTimeout(() => {
+                                    item.classList.add('active');
+                                }, index * 200); // Stagger animation
+                            }
+                        });
+                    }
+
+                    // Stop observing once animated if you only want it to animate once
+                    // observer.unobserve(entry.target);
+                } else {
+                    // Optional: remove 'active' class when section exits view, if you want re-animation
+                    // entry.target.classList.remove('active');
+                    // navLinks.forEach(link => {
+                    //     if (link.getAttribute('href') === `#${targetId}`) {
+                    //         link.classList.remove('active');
+                    //     }
+                    // });
                 }
             });
+        }, observerOptions);
 
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href').includes(current)) {
-                    link.classList.add('active');
-                }
-            });
+        sections.forEach(element => {
+            observer.observe(element);
         });
     };
 
@@ -107,77 +147,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    // --- Fade-in on Scroll Animation ---
-    const fadeInOnScroll = () => {
-        const fadeElements = document.querySelectorAll('.fade-in');
-        const options = {
-            threshold: 0.1, // Trigger when 10% of the element is visible
-            rootMargin: "0px 0px -100px 0px" // Trigger slightly earlier
-        };
-
-        const observer = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                    if (entry.target.id === 'experience') {
-                        // Animate timeline items individually
-                        const timelineItems = entry.target.querySelectorAll('.timeline-item');
-                        timelineItems.forEach((item, index) => {
-                            setTimeout(() => {
-                                item.classList.add('active');
-                            }, index * 200); // Stagger animation
-                        });
-                    }
-                    observer.unobserve(entry.target); // Stop observing once animated
-                }
-            });
-        }, options);
-
-        fadeElements.forEach(element => {
-            observer.observe(element);
-        });
-    };
-
-    // --- Testimonials Slider ---
-    const testimonialsSlider = () => {
-        const slider = document.querySelector('.testimonials-slider');
-        const prevBtn = document.querySelector('.prev-btn');
-        const nextBtn = document.querySelector('.next-btn');
-        const items = document.querySelectorAll('.testimonial-item');
-        let currentIndex = 0;
-
-        const showItem = (index) => {
-            if (index < 0) {
-                currentIndex = items.length - 1;
-            } else if (index >= items.length) {
-                currentIndex = 0;
-            } else {
-                currentIndex = index;
-            }
-            slider.style.transform = `translateX(${-currentIndex * 100}%)`;
-        };
-
-        prevBtn.addEventListener('click', () => {
-            showItem(currentIndex - 1);
-        });
-
-        nextBtn.addEventListener('click', () => {
-            showItem(currentIndex + 1);
-        });
-
-        // Optional: Auto-slide
-        let slideInterval = setInterval(() => {
-            showItem(currentIndex + 1);
-        }, 5000); // Change slide every 5 seconds
-
-        slider.addEventListener('mouseenter', () => clearInterval(slideInterval));
-        slider.addEventListener('mouseleave', () => {
-            slideInterval = setInterval(() => {
-                showItem(currentIndex + 1);
-            }, 5000);
-        });
-    };
-
     // --- Contact Form Submission ---
     const handleContactFormSubmit = (event) => {
         event.preventDefault(); // Prevent default form submission
@@ -206,31 +175,48 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        // Simulate sending data to a backend (replace with actual fetch() or XMLHttpRequest)
-        console.log('Sending message:', { name, email, subject, message });
-
-        // Simulate API call success/failure
-        setTimeout(() => {
-            const success = Math.random() > 0.1; // 90% chance of success
-
-            if (success) {
+        // --- IMPORTANT: Replace 'YOUR_FORMSPREE_ENDPOINT' with your actual Formspree endpoint URL ---
+        // Example: https://formspree.io/f/your_unique_hash
+        const formspreeEndpoint = 'https://formspree.io/f/your_unique_hash'; 
+        
+        const formData = new FormData(form);
+        
+        fetch(formspreeEndpoint, {
+            method: 'POST',
+            body: formData,
+            headers: {
+                'Accept': 'application/json'
+            }
+        })
+        .then(response => {
+            if (response.ok) {
                 formMessages.textContent = 'Pesan Anda telah terkirim! Saya akan segera menghubungi Anda.';
                 formMessages.classList.remove('error');
                 formMessages.classList.add('success');
-                formMessages.style.display = 'block';
                 form.reset(); // Clear form on success
             } else {
-                formMessages.textContent = 'Terjadi kesalahan saat mengirim pesan. Mohon coba lagi nanti.';
-                formMessages.classList.remove('success');
-                formMessages.classList.add('error');
-                formMessages.style.display = 'block';
+                return response.json().then(data => {
+                    if (data.errors) {
+                        formMessages.textContent = data.errors.map(error => error.message).join(', ');
+                    } else {
+                        formMessages.textContent = 'Terjadi kesalahan saat mengirim pesan. Mohon coba lagi.';
+                    }
+                    formMessages.classList.remove('success');
+                    formMessages.classList.add('error');
+                });
             }
-
-            // Hide message after a few seconds
+        })
+        .catch(error => {
+            formMessages.textContent = 'Gagal terhubung ke server. Periksa koneksi internet Anda.';
+            formMessages.classList.remove('success');
+            formMessages.classList.add('error');
+        })
+        .finally(() => {
+            formMessages.style.display = 'block'; // Ensure messages are shown
             setTimeout(() => {
-                formMessages.style.display = 'none';
+                formMessages.style.display = 'none'; // Hide message after a few seconds
             }, 7000);
-        }, 1500); // Simulate network delay
+        });
     };
 
     const validateEmail = (email) => {
@@ -266,14 +252,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Initialize all functions ---
     navSlide();
-    highlightNavLink();
     typingEffect();
-    fadeInOnScroll();
-    testimonialsSlider();
+    setupScrollAnimationsAndNavHighlight(); // This replaces highlightNavLink and fadeInOnScroll
+    backToTopButton();
     setCurrentYear();
 
     const contactForm = document.getElementById('contactForm');
     if (contactForm) {
         contactForm.addEventListener('submit', handleContactFormSubmit);
     }
+
+    // Removed the testimonialsSlider() call as the section is no longer in HTML
+    // testimonialsSlider();
 });

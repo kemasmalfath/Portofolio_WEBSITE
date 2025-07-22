@@ -1,7 +1,7 @@
 /* --- Global Styles & Variables --- */
 :root {
     --primary-color: #007bff; /* Biru cerah (untuk highlight, tombol, dll) */
-    --primary-dark: #0056b3;  /* Biru gelap (untuk hover, atau elemen dominan) */
+    --primary-dark: #0056b3;  /* Biru gelap (untuk hover, atau elemen dominan) */
     --accent-color: #28a745; /* Hijau untuk tombol aksi */
     --accent-dark: #218838;
 
@@ -661,81 +661,6 @@ main section {
     margin-top: auto;
 }
 
-/* Testimonials Section */
-.testimonials-slider {
-    display: flex;
-    overflow-x: hidden;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-    width: 100%;
-    max-width: 900px;
-    margin: 0 auto 30px auto;
-}
-
-.testimonial-item {
-    flex: 0 0 100%;
-    scroll-snap-align: center;
-    padding: 40px;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    box-sizing: border-box;
-}
-
-.client-avatar {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-bottom: 20px;
-    border: 3px solid var(--primary-color);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-}
-
-.quote {
-    font-size: 1.25rem;
-    font-style: italic;
-    color: var(--dark-text);
-    margin-bottom: 20px;
-    line-height: 1.6;
-}
-
-.client-name {
-    font-weight: 600;
-    color: var(--primary-dark);
-    font-size: 1.1rem;
-}
-
-.slider-nav {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    margin-top: 20px;
-}
-
-.slider-nav button {
-    background-color: var(--primary-color);
-    color: var(--light-text);
-    border: none;
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    font-size: 1.5rem;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: background-color var(--transition-speed), transform var(--transition-speed);
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-}
-
-.slider-nav button:hover {
-    background-color: var(--primary-dark);
-    transform: scale(1.05);
-}
-
 /* Contact Section */
 .contact-tagline {
     font-size: 1.3rem;
@@ -1150,10 +1075,6 @@ footer p {
 
     #skills .skills-grid {
         grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-    }
-
-    .testimonial-item {
-        padding: 30px;
     }
 
     .quote {
