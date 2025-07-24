@@ -29,6 +29,6 @@ Portofolio ini dibangun dengan teknologi dasar yang kuat untuk memastikan fleksi
 * **Efek Typing Dinamis:** Pengantar yang menarik di bagian Hero.
 * **Animasi Scroll:** Pengalaman penjelajahan yang halus dan menarik.
 * **Formulir Kontak Fungsional:** Memudahkan pengunjung untuk terhubung.
-* **Struktur Moduler (JavaScript `loadContent`):** Memisahkan konten teks panjang ke file eksternal untuk pengelolaan yang mudah.
+* **Struktur Moduler (JavaScript `loadContent`):** Memisahkan konten teks panjang ke file eksternal untuk pengelolaan yang mudah
 
 
