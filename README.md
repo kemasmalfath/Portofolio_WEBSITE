@@ -31,4 +31,4 @@ Portofolio ini dibangun dengan teknologi dasar yang kuat untuk memastikan fleksi
 * **Formulir Kontak Fungsional:** Memudahkan pengunjung untuk terhubung.
 * **Struktur Moduler (JavaScript `loadContent`):** Memisahkan konten teks panjang ke file eksternal untuk pengelolaan yang mudah.
 
----
+
