@@ -15,7 +15,6 @@ Repositori ini adalah rumah bagi kode sumber untuk portofolio web profesional sa
 
 Dibangun dengan fokus pada **desain bersih, performa optimal, dan pengalaman pengguna yang intuitif**, portofolio ini adalah representasi digital dari perjalanan dan kemampuan saya sebagai pengembang.
 
----
 
 ## 🛠️ Teknologi yang Digunakan
 
