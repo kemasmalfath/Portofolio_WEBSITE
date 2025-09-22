@@ -10,7 +10,7 @@ Dibangun dengan fokus pada **desain bersih, performa optimal, dan pengalaman pen
 ## 🛠️ Teknologi yang Digunakan 
 Portofolio ini dibangun dengan teknologi dasar yang kuat untuk memastikan fleksibilitas dan kecepatan:
 * **HTML5:** Struktur konten semantik dan aksesibel.
-* 
+  
 * **CSS3:** Styling modern dan desain responsif (dengan animasi kustom!).
 * **JavaScript (Vanilla JS):** Untuk fungsionalitas interaktif, efek ketik dinamis, dan animasi saat scroll.
 
