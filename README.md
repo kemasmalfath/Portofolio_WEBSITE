@@ -12,7 +12,6 @@ Portofolio ini dibangun dengan teknologi dasar yang kuat untuk memastikan fleksi
 * **HTML5:** Struktur konten semantik dan aksesibel.
 * **CSS3:** Styling modern dan desain responsif (dengan animasi kustom!).
 * **JavaScript (Vanilla JS):** Untuk fungsionalitas interaktif, efek ketik dinamis, dan animasi saat scroll.
-
 ### Fitur Kunci:
 * **Desain Responsif:** Tampilan optimal di berbagai perangkat (desktop, tablet, mobile).
 * **Efek Typing Dinamis:** Pengantar yang menarik di bagian Hero.
