@@ -20,3 +20,4 @@ Portofolio ini dibangun dengan teknologi dasar yang kuat untuk memastikan fleksi
 * **Struktur Moduler (JavaScript `loadContent`):** Memisahkan konten teks panjang ke file eksternal untuk pengelolaan yang mudah
 * 
 
+
