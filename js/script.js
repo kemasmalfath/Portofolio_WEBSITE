@@ -116,6 +116,7 @@ document.addEventListener('DOMContentLoaded', () => {
         let charIndex = 0;
         let isDeleting = false;
 
+        
         const type = () => {
             const currentPhrase = phrases[phraseIndex];
             const displayText = isDeleting
