@@ -174,7 +174,6 @@ document.addEventListener('DOMContentLoaded', () => {
             formMessages.style.display = 'block';
             return;
         }
-
         // --- IMPORTANT: Replace 'YOUR_FORMSPREE_ENDPOINT' with your actual Formspree endpoint URL ---
         // Example: https://formspree.io/f/your_unique_hash
         const formspreeEndpoint = 'https://formspree.io/f/your_unique_hash'; 
