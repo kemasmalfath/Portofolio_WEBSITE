@@ -1,34 +1,40 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portofolio profesional Nama Lengkap Anda - Pengembang Web, Desainer UI/UX, dan Kreator Konten. Lihat proyek dan keahlian saya.">
-    <meta name="keywords" content="portofolio, web developer, desain ui/ux, javascript, html, css, nama anda, pengembang web, frontend, backend">
+    <meta name="description"
+        content="Portofolio profesional Nama Lengkap Anda - Pengembang Web, Desainer UI/UX, dan Kreator Konten. Lihat proyek dan keahlian saya.">
+    <meta name="keywords"
+        content="portofolio, web developer, desain ui/ux, javascript, html, css, nama anda, pengembang web, frontend, backend">
     <meta name="author" content="Nama Lengkap Anda">
 
     <title>Kemas Alfath Portofolio</title>
 
     <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
 
-    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
     <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
     <header id="hero">
         <div class="container">
-    <nav class="navbar">
-        <div class="logo">
-            <a href="#">
-                <img src="foto/Logo_TTT.png" alt="Kemas M Alfath">
-            </a>
-        </div>
-        <ul class="nav-links">
-                    <li><a href="#about" class="nav-item">Tentang</a></li>  
+            <nav class="navbar">
+                <div class="logo">
+                    <a href="#">
+                        <img src="foto/Logo_TTT.png" alt="Kemas M Alfath">
+                    </a>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#about" class="nav-item">Tentang</a></li>
                     <li><a href="#education" class="nav-item">Pendidikan</a></li>
                     <li><a href="#experience" class="nav-item">Pengalaman</a></li>
                     <li><a href="#skills" class="nav-item">Keahlian</a></li>
@@ -43,20 +49,31 @@
             </nav>
             <br>
             <div class="hero-content">
-                <img src="foto/almet.jpg" alt="Foto Profil Kemas Alfath " class="profile-img animate-bounce-in">
-                <h1 class="animate-fade-in-up">Halo, saya <span class="highlight">Kemas Muhammad Alfath Iskandar</span></h1>
-                <p class="tagline animate-fade-in-up delay-1">Saya adalah <span class="typing-text"></span></p>
-                <div class="social-links animate-fade-in-up delay-2">
-                    <a href="https://linkedin.com/in/alfath-iskandar-578115323/" target="_blank" aria-label="Profil LinkedIn Anda"><i class="fab fa-linkedin"></i></a>
-                    <a href="https://github.com/kemasmalfath" target="_blank" aria-label="Profil GitHub Anda"><i class="fab fa-github"></i></a>
-                    <a href="https://tiktok.com/@k.alfath.i" target="_blank" aria-label="Profil TikTok Anda"><i class="fab fa-tiktok"></i></a> 
-                    <a href="https://instagram.com/k_alfath_i" target="_blank" aria-label="Profil Instagram Anda"><i class="fab fa-instagram"></i></a>
-                    <a href="https://youtube.com/channel/namaanda" target="_blank" aria-label="Channel YouTube Anda"><i class="fab fa-youtube"></i></a> 
-                    <a href="mailto:email@contoh.com" aria-label="Kirim Email"><i class="fas fa-envelope"></i></a>
+                <!-- Bagian Teks (Kiri) -->
+                <div class="hero-text">
+                    <span class="greeting-badge animate-fade-in-up">HALO, SAYA</span>
+                    <h1 class="animate-fade-in-up delay-1">Kemas<br>Alfath<span class="dot">.</span></h1>
+                    <p class="tagline animate-fade-in-up delay-2">Saya adalah <span class="typing-text"></span></p>
+
+                    <div class="hero-actions animate-fade-in-up delay-3">
+                        <a href="#contact" class="btn primary-btn">Hubungi Saya</a>
+                        <a href="assets/CV_Kemas_2025.pdf" download class="btn secondary-btn outline">Unduh CV</a>
+                    </div>
+
+                    <div class="social-links animate-fade-in-up delay-3">
+                        <a href="https://linkedin.com/in/alfath-iskandar-578115323/" target="_blank"><i
+                                class="fab fa-linkedin"></i></a>
+                        <a href="https://github.com/kemasmalfath" target="_blank"><i class="fab fa-github"></i></a>
+                        <a href="https://instagram.com/k_alfath_i" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="mailto:alfathisk1453@gmail.com"><i class="fas fa-envelope"></i></a>
+                    </div>
                 </div>
-                <div class="hero-actions animate-fade-in-up delay-3">
-                    <a href="#contact" class="btn primary-btn">Hubungi Saya </a>
-                    <a href="assets/CV_Kemas_2025.pdf" download class="btn secondary-btn"><i class="fas fa-download"></i> Unduh CV</a>
+
+                <!-- Bagian Gambar (Kanan) -->
+                <div class="hero-image animate-fade-in-up delay-1">
+                    <div class="img-card">
+                        <img src="foto/almet.jpg" alt="Kemas Alfath">
+                    </div>
                 </div>
             </div>
         </div>
@@ -67,20 +84,32 @@
             <div class="container">
                 <h2 class="section-title">Tentang Saya </h2>
                 <div class="about-content">
-                  <div class="about-text">
-    <p>Halo! Saya Kemas Muhammad Alfath Iskandar, seorang profesional yang berfokus di dunia IT, khususnya dalam bidang Data Science. Saya memiliki kemampuan dalam mengelola, menganalisis, dan memvisualisasikan data untuk menghasilkan insight yang bermanfaat bagi pengambilan keputusan.</p>
-    <p>Selain itu, saya juga memiliki keahlian di bidang Web Development dan Software Development, dengan pemahaman menyeluruh terhadap pengembangan front-end maupun back-end. Saya senang menciptakan solusi digital yang efisien, modern, dan mudah digunakan.</p>
-    <p>Saya memiliki kemampuan komunikasi dan manajemen proyek yang baik, mampu bekerja secara mandiri maupun kolaboratif dalam tim. Saya terus belajar dan mengikuti perkembangan teknologi terbaru untuk meningkatkan kualitas diri dan hasil kerja.</p>
-    <ul class="about-highlights">
-        <li><i class="fas fa-check-circle"></i> Berfokus di bidang Data Science dan Analisis Data</li>
-        <li><i class="fas fa-check-circle"></i> Memiliki kemampuan dalam Web & Software Development</li>
-        <li><i class="fas fa-check-circle"></i> Komunikatif dan memiliki kemampuan manajemen proyek yang baik</li>
-        <li><i class="fas fa-check-circle"></i> Selalu antusias mempelajari teknologi baru dan meningkatkan kemampuan</li>
-    </ul>
-</div>
+                    <div class="about-text">
+                        <p>Halo! Saya Kemas Muhammad Alfath Iskandar, seorang profesional yang berfokus di dunia IT,
+                            khususnya dalam bidang Data Science. Saya memiliki kemampuan dalam mengelola, menganalisis,
+                            dan memvisualisasikan data untuk menghasilkan insight yang bermanfaat bagi pengambilan
+                            keputusan.</p>
+                        <p>Selain itu, saya juga memiliki keahlian di bidang Web Development dan Software Development,
+                            dengan pemahaman menyeluruh terhadap pengembangan front-end maupun back-end. Saya senang
+                            menciptakan solusi digital yang efisien, modern, dan mudah digunakan.</p>
+                        <p>Saya memiliki kemampuan komunikasi dan manajemen proyek yang baik, mampu bekerja secara
+                            mandiri maupun kolaboratif dalam tim. Saya terus belajar dan mengikuti perkembangan
+                            teknologi terbaru untuk meningkatkan kualitas diri dan hasil kerja.</p>
+                        <ul class="about-highlights">
+                            <li><i class="fas fa-check-circle"></i> Berfokus di bidang Data Science dan Analisis Data
+                            </li>
+                            <li><i class="fas fa-check-circle"></i> Memiliki kemampuan dalam Web & Software Development
+                            </li>
+                            <li><i class="fas fa-check-circle"></i> Komunikatif dan memiliki kemampuan manajemen proyek
+                                yang baik</li>
+                            <li><i class="fas fa-check-circle"></i> Selalu antusias mempelajari teknologi baru dan
+                                meningkatkan kemampuan</li>
+                        </ul>
+                    </div>
 
                     <div class="about-image">
-                        <img src="foto/Tentang.jpg" alt="Ilustrasi Tentang Saya"> </div>
+                        <img src="foto/Tentang.jpg" alt="Ilustrasi Tentang Saya">
+                    </div>
                 </div>
             </div>
         </section>
@@ -130,187 +159,239 @@
             </div>
         </section>
  -->
-<!-- Bagian Pendidikan -->
-<section id="education" class="section-padding fade-in bg-light-gray">
-  <div class="container">
-    <h2 class="section-title">Pendidikan</h2>
+        <!-- Bagian Pendidikan -->
+        <section id="education" class="section-padding fade-in bg-light-gray">
+            <div class="container">
+                <h2 class="section-title">Pendidikan</h2>
 
-    <div class="card simple-card">
-      <h3>Ilmu Komputer</h3>
-      <h4>Universitas Lampung</h4>
-      <p><strong>Periode:</strong> September 2023 – Sekarang</p>
-      <p><strong>IPK:</strong> 3,79 / 4,00</p>
-      <p>Fokus pada Pengembangan Web, Basis Data, dan Analisis Data.</p>
-    </div>
-  </div>
-</section>
-
-<!-- Bagian Pengalaman -->
-<section id="experience" class="section-padding fade-in">
-  <div class="container">
-    <h2 class="section-title">Pengalaman</h2>
-
-    <div class="card simple-card">
-      <h3>Senior Software Engineer</h3>
-      <h4>Telkom Indonesia</h4>
-      <p><strong>Periode:</strong> Desember 2025 – Februari 2026</p>
-      <ul>
-        <li>Memimpin pengembangan aplikasi web menggunakan React.js dan Node.js.</li>
-        <li>Menerapkan CI/CD untuk meningkatkan efisiensi deployment sebesar 30%.</li>
-        <li>Memberikan mentoring dan melakukan code review untuk tim junior.</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<section id="skills" class="section-padding bg-light-gray fade-in">
-    <div class="container">
-        <h2 class="section-title">Keahlian Teknis</h2>
-
-        <!-- ===== Bahasa Pemrograman & Framework ===== -->
-        <div class="skills-category">
-            <h3>Bahasa Pemrograman & Framework</h3>
-            <div class="skills-grid">
-                <div class="skill-item">
-                    <i class="fab fa-html5"></i>
-                    <span>HTML5</span>
-                </div>
-                <div class="skill-item">
-                    <i class="fab fa-css3-alt"></i>
-                    <span>CSS3 / Tailwind CSS</span>
-                </div>
-                <div class="skill-item">
-                    <i class="fab fa-js"></i>
-                    <span>JavaScript</span>
-                </div>
-                <div class="skill-item">
-                    <i class="fab fa-python"></i>
-                    <span>Python (Data Science, Machine Learning)</span>
-                </div>
-                <div class="skill-item">
-                    <i class="fab fa-php"></i>
-                    <span>PHP (Laravel)</span>
-                </div>
-                <div class="skill-item">
-                    <i class="fas fa-database"></i>
-                    <span>SQL (MySQL, PostgreSQL)</span>
+                <div class="card simple-card">
+                    <h3>Ilmu Komputer</h3>
+                    <h4>Universitas Lampung</h4>
+                    <p><strong>Periode:</strong> September 2023 – Sekarang</p>
+                    <p><strong>IPK:</strong> 3,79 / 4,00</p>
+                    <p>Fokus pada Pengembangan Web, Basis Data, dan Analisis Data.</p>
                 </div>
             </div>
-        </div>
-        
+        </section>
 
-        <!-- ===== Tools Data Science ===== -->
-        <div class="skills-category">
-            <h3>Data Science & Analisis</h3>
-            <div class="skills-grid">
-                <div class="skill-item">
-                    <i class="fas fa-chart-line"></i>
-                    <span>Pandas & NumPy</span>
-                </div>
-                <div class="skill-item">
-                    <i class="fas fa-brain"></i>
-                    <span>Scikit-learn & TensorFlow</span>
-                </div>
-                <div class="skill-item">
-                    <i class="fas fa-database"></i>
-                    <span>Data Cleaning & Preprocessing</span>
-                </div>
-                <div class="skill-item">
-                    <i class="fas fa-chart-pie"></i>
-                    <span>Data Visualization (Matplotlib, Seaborn, Power BI)</span>
-                </div>
-                <div class="skill-item">
-                    <i class="fas fa-cloud"></i>
-                    <span>Google Colab & Jupyter Notebook</span>
+        <!-- Bagian Pengalaman -->
+        <section id="experience" class="section-padding fade-in">
+            <div class="container">
+                <h2 class="section-title">Pengalaman</h2>
+
+                <div class="experience-list">
+                    <!-- Item 1: DPM FMIPA -->
+                    <div class="experience-item">
+                        <div class="exp-icon">
+                            <i class="fas fa-landmark"></i>
+                        </div>
+                        <div class="exp-content">
+                            <h3>Head of Legislative Commission</h3>
+                            <h4>Student Representative Council (DPM FMIPA Unila)</h4>
+                            <p class="exp-meta">Jan 2026 - Sekarang · 2 bln | Kota Bandar Lampung</p>
+
+                            <div class="exp-skills">
+                                <i class="fas fa-gem"></i>
+                                <span>Communication, Legislation, Leadership, Public Speaking</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item 2: Telkominfra -->
+                    <div class="experience-item">
+                        <div class="exp-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <div class="exp-content">
+                            <h3>Web Developer Intern – Data Management Division</h3>
+                            <h4>PT. Infrastruktur Telekomunikasi Indonesia (Telkominfra)</h4>
+                            <p class="exp-meta">Des 2025 - Feb 2026 · 3 bln | On-site</p>
+                            <p class="exp-desc">Mengembangkan aplikasi web internal untuk manajemen data, berkolaborasi
+                                dengan tim teknis, dan mengimplementasikan fitur-fitur modern.</p>
+
+                            <div class="exp-skills">
+                                <i class="fas fa-gem"></i>
+                                <span>Web Development, Database Management, Communication</span>
+                            </div>
+
+                            <div class="exp-attachment">
+                                <span class="attachment-badge"><i class="fas fa-file-pdf"></i> Sertifikat.pdf</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item 3: Rohis FMIPA -->
+                    <div class="experience-item">
+                        <div class="exp-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="exp-content">
+                            <h3>Head of Islamic Studies and Community Affairs</h3>
+                            <h4>Rohani Islam FMIPA Unila</h4>
+                            <p class="exp-meta">Jan 2025 - Des 2025 · 1 thn | Kota Bandar Lampung</p>
+
+                            <div class="exp-skills">
+                                <i class="fas fa-gem"></i>
+                                <span>Project Management, Leadership, Event Management</span>
+                            </div>
+
+                            <div class="exp-attachment">
+                                <span class="attachment-badge"><i class="fas fa-table"></i> Spreadsheet Bidang</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
+        </section>
 
-        <!-- ===== Software Engineering Tools ===== -->
-        <div class="skills-category">
-            <h3>Software Development & DevOps</h3>
-            <div class="skills-grid">
-                <div class="skill-item">
-                    <i class="fab fa-git-alt"></i>
-                    <span>Git & GitHub/GitLab</span>
+        <section id="skills" class="section-padding bg-light-gray fade-in">
+            <div class="container">
+                <h2 class="section-title">Keahlian Teknis</h2>
+
+                <!-- ===== Bahasa Pemrograman & Framework ===== -->
+                <div class="skills-category">
+                    <h3>Bahasa Pemrograman & Framework</h3>
+                    <div class="skills-grid">
+                        <div class="skill-item">
+                            <i class="fab fa-html5"></i>
+                            <span>HTML5</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fab fa-css3-alt"></i>
+                            <span>CSS3 / Tailwind CSS</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fab fa-js"></i>
+                            <span>JavaScript</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fab fa-python"></i>
+                            <span>Python (Data Science, Machine Learning)</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fab fa-php"></i>
+                            <span>PHP (Laravel)</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-database"></i>
+                            <span>SQL (MySQL, PostgreSQL)</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="skill-item">
-                    <i class="fas fa-code"></i>
-                    <span>VS Code</span>
+
+
+                <!-- ===== Tools Data Science ===== -->
+                <div class="skills-category">
+                    <h3>Data Science & Analisis</h3>
+                    <div class="skills-grid">
+                        <div class="skill-item">
+                            <i class="fas fa-chart-line"></i>
+                            <span>Pandas & NumPy</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-brain"></i>
+                            <span>Scikit-learn & TensorFlow</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-database"></i>
+                            <span>Data Cleaning & Preprocessing</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-chart-pie"></i>
+                            <span>Data Visualization (Matplotlib, Seaborn, Power BI)</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-cloud"></i>
+                            <span>Google Colab & Jupyter Notebook</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="skill-item">
-                    <i class="fab fa-docker"></i>
-                    <span>Docker</span>
+
+                <!-- ===== Software Engineering Tools ===== -->
+                <div class="skills-category">
+                    <h3>Software Development & DevOps</h3>
+                    <div class="skills-grid">
+                        <div class="skill-item">
+                            <i class="fab fa-git-alt"></i>
+                            <span>Git & GitHub/GitLab</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-code"></i>
+                            <span>VS Code</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fab fa-docker"></i>
+                            <span>Docker</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-cogs"></i>
+                            <span>API Integration & Automation</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="skill-item">
-                    <i class="fas fa-cogs"></i>
-                    <span>API Integration & Automation</span>
+
+                <!-- ===== Productivity & Collaboration ===== -->
+                <div class="skills-category">
+                    <h3>Produktivitas & Manajemen Proyek</h3>
+                    <div class="skills-grid">
+                        <div class="skill-item">
+                            <i class="fas fa-tasks"></i>
+                            <span>Project Management (Notion, Trello, Slack)</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-file-word"></i>
+                            <span>Microsoft Office (Word, Excel, PowerPoint)</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fab fa-google"></i>
+                            <span>Google Workspace (Docs, Sheets, Drive)</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-comments"></i>
+                            <span>Communication & Team Collaboration</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ===== UI/UX & Desain ===== -->
+                <div class="skills-category">
+                    <h3>Desain UI/UX & Multimedia</h3>
+                    <div class="skills-grid">
+                        <div class="skill-item">
+                            <i class="fab fa-figma"></i>
+                            <span>Figma (UI/UX Design)</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-paint-brush"></i>
+                            <span>Canva (Graphic Design)</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-video"></i>
+                            <span>CapCut (Multimedia Production)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ===== Networking & Digital Marketing ===== -->
+                <div class="skills-category">
+                    <h3>Networking & Digital Marketing</h3>
+                    <div class="skills-grid">
+                        <div class="skill-item">
+                            <i class="fas fa-network-wired"></i>
+                            <span>Networking (Cisco)</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-bullhorn"></i>
+                            <span>Digital Marketing Tools (SEO, Google Analytics, Meta Ads)</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fas fa-ad"></i>
+                            <span>Content Strategy & Social Media Optimization</span>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-
-        <!-- ===== Productivity & Collaboration ===== -->
-        <div class="skills-category">
-            <h3>Produktivitas & Manajemen Proyek</h3>
-            <div class="skills-grid">
-                <div class="skill-item">
-                    <i class="fas fa-tasks"></i>
-                    <span>Project Management (Notion, Trello, Slack)</span>
-                </div>
-                <div class="skill-item">
-                    <i class="fas fa-file-word"></i>
-                    <span>Microsoft Office (Word, Excel, PowerPoint)</span>
-                </div>
-                <div class="skill-item">
-                    <i class="fab fa-google"></i>
-                    <span>Google Workspace (Docs, Sheets, Drive)</span>
-                </div>
-                <div class="skill-item">
-                    <i class="fas fa-comments"></i>
-                    <span>Communication & Team Collaboration</span>
-                </div>
-            </div>
-        </div>
-
-        <!-- ===== UI/UX & Desain ===== -->
-        <div class="skills-category">
-            <h3>Desain UI/UX & Multimedia</h3>
-            <div class="skills-grid">
-                <div class="skill-item">
-                    <i class="fab fa-figma"></i>
-                    <span>Figma (UI/UX Design)</span>
-                </div>
-                <div class="skill-item">
-                    <i class="fas fa-paint-brush"></i>
-                    <span>Canva (Graphic Design)</span>
-                </div>
-                <div class="skill-item">
-                    <i class="fas fa-video"></i>
-                    <span>CapCut (Multimedia Production)</span>
-                </div>
-            </div>
-        </div>
-
-        <!-- ===== Networking & Digital Marketing ===== -->
-        <div class="skills-category">
-            <h3>Networking & Digital Marketing</h3>
-            <div class="skills-grid">
-                <div class="skill-item">
-                    <i class="fas fa-network-wired"></i>
-                    <span>Networking (Cisco)</span>
-                </div>
-                <div class="skill-item">
-                    <i class="fas fa-bullhorn"></i>
-                    <span>Digital Marketing Tools (SEO, Google Analytics, Meta Ads)</span>
-                </div>
-                <div class="skill-item">
-                    <i class="fas fa-ad"></i>
-                    <span>Content Strategy & Social Media Optimization</span>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+        </section>
 
 
         <section id="portfolio" class="section-padding fade-in">
@@ -321,10 +402,14 @@
                         <img src="images/project1.webp" alt="Proyek E-Commerce Modern">
                         <div class="project-info">
                             <h3>Platform E-Commerce Modern</h3>
-                            <p>Mengembangkan platform belanja online lengkap dengan fitur keranjang, checkout, dan manajemen produk. Dibangun dengan **React.js** dan **Node.js** (Express).</p>
+                            <p>Mengembangkan platform belanja online lengkap dengan fitur keranjang, checkout, dan
+                                manajemen produk. Dibangun dengan **React.js** dan **Node.js** (Express).</p>
                             <div class="project-links">
-                                <a href="https://demo-ecommerce.netlify.app" target="_blank" class="btn secondary-btn small-btn"><i class="fas fa-external-link-alt"></i> Lihat Proyek</a>
-                                <a href="https://github.com/namaanda/ecommerce-repo" target="_blank" class="btn secondary-btn small-btn"><i class="fab fa-github"></i> Kode Sumber</a>
+                                <a href="https://demo-ecommerce.netlify.app" target="_blank"
+                                    class="btn secondary-btn small-btn"><i class="fas fa-external-link-alt"></i> Lihat
+                                    Proyek</a>
+                                <a href="https://github.com/namaanda/ecommerce-repo" target="_blank"
+                                    class="btn secondary-btn small-btn"><i class="fab fa-github"></i> Kode Sumber</a>
                             </div>
                         </div>
                     </div>
@@ -332,10 +417,14 @@
                         <img src="images/project2.webp" alt="Aplikasi Manajemen Proyek">
                         <div class="project-info">
                             <h3>Aplikasi Manajemen Proyek</h3>
-                            <p>Membangun alat manajemen tugas dan proyek kolaboratif untuk tim kecil, dengan fitur drag-and-drop dan notifikasi. Menggunakan **Vue.js** dan **Firebase**.</p>
+                            <p>Membangun alat manajemen tugas dan proyek kolaboratif untuk tim kecil, dengan fitur
+                                drag-and-drop dan notifikasi. Menggunakan **Vue.js** dan **Firebase**.</p>
                             <div class="project-links">
-                                <a href="https://demo-project-app.netlify.app" target="_blank" class="btn secondary-btn small-btn"><i class="fas fa-external-link-alt"></i> Lihat Proyek</a>
-                                <a href="https://github.com/namaanda/project-management-app" target="_blank" class="btn secondary-btn small-btn"><i class="fab fa-github"></i> Kode Sumber</a>
+                                <a href="https://demo-project-app.netlify.app" target="_blank"
+                                    class="btn secondary-btn small-btn"><i class="fas fa-external-link-alt"></i> Lihat
+                                    Proyek</a>
+                                <a href="https://github.com/namaanda/project-management-app" target="_blank"
+                                    class="btn secondary-btn small-btn"><i class="fab fa-github"></i> Kode Sumber</a>
                             </div>
                         </div>
                     </div>
@@ -343,16 +432,22 @@
                         <img src="images/project3.webp" alt="Situs Web Perusahaan">
                         <div class="project-info">
                             <h3>Situs Web Perusahaan Responsif</h3>
-                            <p>Merancang dan mengimplementasikan situs web statis yang sepenuhnya responsif untuk sebuah startup, berfokus pada performa dan SEO. Dibuat dengan **HTML**, **CSS**, dan **Vanilla JavaScript**.</p>
+                            <p>Merancang dan mengimplementasikan situs web statis yang sepenuhnya responsif untuk sebuah
+                                startup, berfokus pada performa dan SEO. Dibuat dengan **HTML**, **CSS**, dan **Vanilla
+                                JavaScript**.</p>
                             <div class="project-links">
-                                <a href="https://demo-company-site.netlify.app" target="_blank" class="btn secondary-btn small-btn"><i class="fas fa-external-link-alt"></i> Lihat Proyek</a>
-                                <a href="https://github.com/namaanda/company-website" target="_blank" class="btn secondary-btn small-btn"><i class="fab fa-github"></i> Kode Sumber</a>
+                                <a href="https://demo-company-site.netlify.app" target="_blank"
+                                    class="btn secondary-btn small-btn"><i class="fas fa-external-link-alt"></i> Lihat
+                                    Proyek</a>
+                                <a href="https://github.com/namaanda/company-website" target="_blank"
+                                    class="btn secondary-btn small-btn"><i class="fab fa-github"></i> Kode Sumber</a>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="text-center mt-5">
-                    <a href="https://github.com/namaanda?tab=repositories" target="_blank" class="btn primary-btn large-btn">
+                    <a href="https://github.com/namaanda?tab=repositories" target="_blank"
+                        class="btn primary-btn large-btn">
                         Lihat Lebih Banyak Proyek <i class="fas fa-arrow-right"></i>
                     </a>
                 </div>
@@ -362,27 +457,34 @@
         <section id="contact" class="section-padding bg-light-gray fade-in">
             <div class="container">
                 <h2 class="section-title">Hubungi Saya</h2>
-                <p class="contact-tagline">Tertarik untuk berkolaborasi, memiliki proyek menarik, atau hanya ingin menyapa? Jangan ragu untuk menghubungi saya!</p>
+                <p class="contact-tagline">Tertarik untuk berkolaborasi, memiliki proyek menarik, atau hanya ingin
+                    menyapa? Jangan ragu untuk menghubungi saya!</p>
                 <div class="contact-grid">
                     <div class="contact-info">
                         <h3>Informasi Kontak</h3>
                         <p><i class="fas fa-map-marker-alt"></i> Bandar Lampung, Lampung, Indonesia</p>
-                        <p><i class="fas fa-envelope"></i> <a href="mailto:alfathisk1453@gmail.com">alfathisk1453@gmail.com</a></p>
+                        <p><i class="fas fa-envelope"></i> <a
+                                href="mailto:alfathisk1453@gmail.com">alfathisk1453@gmail.com</a></p>
                         <div class="social-links small">
-                            <a href="https://linkedin.com/in/namaanda" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                            <a href="https://github.com/namaanda" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
-                            <a href="https://instagram.com/k_alfath_i" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="https://linkedin.com/in/namaanda" target="_blank" aria-label="LinkedIn"><i
+                                    class="fab fa-linkedin"></i></a>
+                            <a href="https://github.com/namaanda" target="_blank" aria-label="GitHub"><i
+                                    class="fab fa-github"></i></a>
+                            <a href="https://instagram.com/k_alfath_i" target="_blank" aria-label="Instagram"><i
+                                    class="fab fa-instagram"></i></a>
                         </div>
                     </div>
                     <div class="contact-form-wrapper">
                         <form class="contact-form" id="contactForm">
                             <div class="form-group">
                                 <label for="name">Nama Lengkap</label>
-                                <input type="text" id="name" name="name" required placeholder="Masukkan nama lengkap Anda">
+                                <input type="text" id="name" name="name" required
+                                    placeholder="Masukkan nama lengkap Anda">
                             </div>
                             <div class="form-group">
                                 <label for="email">Email Anda</label>
-                                <input type="email" id="email" name="email" required placeholder="Masukkan alamat email Anda">
+                                <input type="email" id="email" name="email" required
+                                    placeholder="Masukkan alamat email Anda">
                             </div>
                             <div class="form-group">
                                 <label for="subject">Subjek</label>
@@ -390,9 +492,11 @@
                             </div>
                             <div class="form-group">
                                 <label for="message">Pesan Anda</label>
-                                <textarea id="message" name="message" rows="6" required placeholder="Tulis pesan Anda di sini..."></textarea>
+                                <textarea id="message" name="message" rows="6" required
+                                    placeholder="Tulis pesan Anda di sini..."></textarea>
                             </div>
-                            <button type="submit" class="btn primary-btn large-btn">Kirim Pesan <i class="fas fa-paper-plane"></i></button>
+                            <button type="submit" class="btn primary-btn large-btn">Kirim Pesan <i
+                                    class="fas fa-paper-plane"></i></button>
                             <div id="form-messages" class="form-messages mt-3"></div>
                         </form>
                     </div>
@@ -404,11 +508,12 @@
     <footer>
         <div class="container">
             <p>Dibuat oleh Kemas Muhammad Alfath Iskandar.</p>
-            </div>
-            <a href="#" class="back-to-top" aria-label="Kembali ke atas"><i class="fas fa-chevron-up"></i></a>
+        </div>
+        <a href="#" class="back-to-top" aria-label="Kembali ke atas"><i class="fas fa-chevron-up"></i></a>
         </div>
     </footer>
 
     <script src="js/script.js"></script>
 </body>
+
 </html>
