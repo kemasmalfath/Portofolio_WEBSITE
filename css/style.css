@@ -1,33 +1,44 @@
 /* --- Global Styles & Variables --- */
 :root {
-    --primary-color: #007bff;
-    /* Biru cerah (untuk highlight, tombol, dll) */
-    --primary-dark: #0056b3;
-    /* Biru gelap (untuk hover, atau elemen dominan) */
-    --accent-color: #28a745;
-    /* Hijau untuk tombol aksi */
-    --accent-dark: #218838;
+    /* --- Premium Dark Theme Palette --- */
+    --bg-body: #0f172a;
+    /* Slate 900 */
+    --bg-dark: #020617;
+    /* Slate 950 */
+    --bg-card: rgba(30, 41, 59, 0.7);
+    /* Slate 800 Glass */
+    --bg-card-hover: rgba(51, 65, 85, 0.9);
+    /* Slate 700 */
 
-    --dark-bg: #1A202C;
-    /* Biru gelap untuk header dan footer */
-    --dark-text: #343a40;
-    /* Teks gelap */
-    --light-text: #f8f9fa;
-    /* Teks terang */
-    --light-gray: #f0f2f5;
-    /* Latar belakang bagian terang */
-    --border-color: #dee2e6;
-    /* Warna batas */
-    --card-bg: #ffffff;
-    --box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-    --hover-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    --text-main: #f8fafc;
+    /* Slate 50 */
+    --text-muted: #cbd5e1;
+    /* Slate 300 */
+    --text-highlight: #60a5fa;
+    /* Blue 400 */
+
+    --primary-color: #3b82f6;
+    /* Blue 500 */
+    --primary-dark: #2563eb;
+    /* Blue 600 */
+    --primary-gradient: linear-gradient(135deg, #60a5fa 0%, #3b82f6 100%);
+
+    --accent-color: #10b981;
+    /* Emerald 500 */
+
+    --border-color: rgba(255, 255, 255, 0.1);
+    --glass-border: 1px solid rgba(255, 255, 255, 0.08);
+
+    --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+    --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.4);
+    --neon-glow: 0 0 15px rgba(59, 130, 246, 0.25);
 
     --font-heading: 'Merriweather', serif;
     --font-body: 'Poppins', sans-serif;
 
     --transition-speed: 0.3s ease;
-    --border-radius-sm: 5px;
-    --border-radius-md: 10px;
+    --border-radius-sm: 6px;
+    --border-radius-md: 16px;
 }
 
 /* Base styles */
@@ -43,9 +54,14 @@ html {
 
 body {
     font-family: var(--font-body);
-    line-height: 1.7;
-    color: var(--dark-text);
-    background-color: var(--light-text);
+    line-height: 1.8;
+    /* Increased line-height for better readability */
+    color: var(--text-main);
+    background-color: var(--bg-body);
+    background-image:
+        radial-gradient(at 0% 0%, rgba(59, 130, 246, 0.15) 0px, transparent 50%),
+        radial-gradient(at 100% 0%, rgba(139, 92, 246, 0.1) 0px, transparent 50%);
+    background-attachment: fixed;
     overflow-x: hidden;
 }
 
@@ -74,9 +90,10 @@ h2,
 h3,
 h4 {
     font-family: var(--font-heading);
-    color: var(--dark-text);
+    color: var(--text-main);
     margin-bottom: 1rem;
     font-weight: 700;
+    letter-spacing: 0.5px;
 }
 
 p {
@@ -144,34 +161,51 @@ p {
     /* Hapus outline default browser yang mengganggu */
 }
 
-.simple-card {
-    background: #fff;
-    border-radius: 12px;
-    padding: 25px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+/* --- Unified Card Style (Glassmorphism) --- */
+.card,
+.simple-card,
+.portfolio-item,
+.contact-info,
+.contact-form-wrapper,
+.skill-item {
+    background: var(--bg-card);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: var(--glass-border);
+    border-radius: var(--border-radius-md);
+    padding: 30px;
+    box-shadow: var(--shadow-sm);
+    transition: all 0.4s ease;
+    color: var(--text-main);
     margin-bottom: 20px;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.simple-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+.card:hover,
+.simple-card:hover,
+.portfolio-item:hover,
+.skill-item:hover {
+    transform: translateY(-5px);
+    background: var(--bg-card-hover);
+    box-shadow: var(--shadow-lg);
+    border-color: rgba(96, 165, 250, 0.3);
 }
 
 .simple-card h3 {
-    color: #007bff;
-    margin-bottom: 5px;
+    color: var(--text-main);
+    margin-bottom: 8px;
+    font-size: 1.4rem;
 }
 
 .simple-card h4 {
-    color: #555;
-    margin-bottom: 10px;
+    color: var(--text-highlight);
+    margin-bottom: 15px;
+    font-size: 1.1rem;
 }
 
 .simple-card p,
 .simple-card li {
-    color: #444;
-    line-height: 1.6;
+    color: var(--text-muted);
+    line-height: 1.7;
 }
 
 .section-title {
@@ -193,11 +227,10 @@ p {
 }
 
 .secondary-btn {
-    /* Pastikan --secondary-color didefinisikan di :root jika ingin pakai variabel ini */
-    background-color: #6c757d;
-    /* grey-ish color */
-    color: var(--light-text);
-    box-shadow: 0 4px 10px rgba(108, 117, 125, 0.2);
+    background-color: var(--bg-card-hover);
+    color: var(--text-main);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 
@@ -219,16 +252,18 @@ p {
 }
 
 /* --- Card Style --- */
+/* This block is now largely superseded by the unified card style above,
+   but keeping it for specific overrides if needed. */
 .card {
-    background-color: var(--card-bg);
-    border-radius: var(--border-radius-md);
-    box-shadow: var(--box-shadow);
-    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+    /* background-color: var(--card-bg); */
+    /* border-radius: var(--border-radius-md); */
+    /* box-shadow: var(--box-shadow); */
+    /* transition: transform var(--transition-speed), box-shadow var(--transition-speed); */
 }
 
 .card:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--hover-shadow);
+    /* transform: translateY(-5px); */
+    /* box-shadow: var(--hover-shadow); */
 }
 
 /* --- Header/Hero Section --- */
@@ -279,23 +314,24 @@ p {
     top: 0;
     left: 0;
     width: 100%;
-    background-color: var(--dark-bg);
-    /* Menggunakan warna solid dari variabel --dark-bg */
-    /* --- HAPUS INI JIKA ANDA TIDAK INGIN EFEK BLUR TRANSPARAN --- */
-    /* backdrop-filter: blur(8px); */
+    width: 100%;
+    background-color: rgba(15, 23, 42, 0.85);
+    /* Slate 900 semi-transparent */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     z-index: 100;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     transition: background-color var(--transition-speed), padding var(--transition-speed);
 }
 
 /* Navbar saat di-scroll (sedikit lebih opaque dan mungkin lebih kecil lagi) */
+/* Navbar saat di-scroll */
 .navbar.scrolled {
-    /* --- PENTING: ATUR BACKGROUND-COLOR DI SINI SAAT SCROLL AGAR TIDAK TRANSPARAN --- */
-    background-color: var(--dark-bg);
-    /* Menggunakan warna solid saat di-scroll juga */
-    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.2);
+    background-color: rgba(2, 6, 23, 0.95);
+    /* Hampir solid saat scroll */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
     padding: 0px 25px;
-    /* Mungkin lebih kecil lagi saat di-scroll */
 }
 
 /* Styling untuk container logo di navbar */
@@ -552,34 +588,39 @@ main section {
 }
 
 .bg-light-gray {
-    background-color: var(--light-gray);
+    background-color: var(--bg-dark);
+    /* Alternating dark background (Slate 950) */
 }
 
 .section-title {
-    font-size: 3rem;
-    margin-bottom: 50px;
+    font-size: 2.8rem;
+    margin-bottom: 60px;
     position: relative;
     display: inline-block;
-    color: var(--dark-bg);
+    color: var(--text-main);
+    background: linear-gradient(to right, #fff, #cbd5e1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .section-title::after {
     content: '';
     position: absolute;
-    width: 80px;
-    height: 5px;
-    background-color: var(--primary-color);
+    width: 60px;
+    height: 4px;
+    background: var(--primary-gradient);
     bottom: -15px;
     left: 50%;
     transform: translateX(-50%);
-    border-radius: 3px;
+    border-radius: 4px;
+    box-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
 }
 
 /* About Section */
 .about-content {
     display: flex;
     align-items: center;
-    gap: 50px;
+    gap: 60px;
     text-align: left;
 }
 
@@ -589,8 +630,8 @@ main section {
 
 .about-text p {
     font-size: 1.1rem;
-    line-height: 1.8;
-    color: var(--dark-text);
+    line-height: 1.9;
+    color: var(--text-muted);
     margin-bottom: 1.5rem;
 }
 
@@ -726,129 +767,222 @@ main section {
 }
 
 .timeline-content ul li {
+    margin-bottom: 5px;
+}
 
-    /* ===== Experience Section (List Style) ===== */
-    .experience-list {
-        display: flex;
-        flex-direction: column;
-        gap: 30px;
-        max-width: 900px;
-        margin: 0 auto;
-    }
+/* ===== Experience Section (List Style) ===== */
+.experience-list {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    max-width: 900px;
+    margin: 0 auto;
+    position: relative;
+    padding-left: 20px;
+    /* Space for the connecting line if added later, though cards handle layout well */
+}
 
+/* Optional: Vertical connecting line behind the cards */
+.experience-list::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    /* Center line for mobile might need adjustment, but for now let's stick to clean cards */
+    width: 2px;
+    background: var(--border-color);
+    display: none;
+    /* Hidden for now to keep the "floating cards" look cleaner, can enable for a timeline look */
+}
+
+.experience-item {
+    display: flex;
+    flex-direction: row;
+    /* Ensure row layout */
+    gap: 30px;
+    background: var(--bg-card);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 40px;
+    border-radius: var(--border-radius-md);
+    border: var(--glass-border);
+    transition: all 0.4s ease;
+    align-items: flex-start;
+    position: relative;
+    overflow: hidden;
+    text-align: left;
+    /* FORCE LEFT ALIGNMENT */
+    width: 100%;
+}
+
+.experience-item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 5px;
+    background: var(--primary-gradient);
+    opacity: 0.8;
+    transition: opacity 0.3s;
+}
+
+.experience-item:hover {
+    transform: translateY(-7px);
+    background: var(--bg-card-hover);
+    box-shadow: var(--shadow-lg);
+    border-color: rgba(96, 165, 250, 0.4);
+}
+
+.experience-item:hover::before {
+    opacity: 1;
+    box-shadow: 0 0 15px rgba(59, 130, 246, 0.6);
+}
+
+.exp-icon {
+    width: 70px;
+    height: 70px;
+    background: rgba(15, 23, 42, 0.6);
+    /* Darker background for contrast */
+    color: var(--text-highlight);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    flex-shrink: 0;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.experience-item:hover .exp-icon {
+    transform: scale(1.1) rotate(5deg);
+    color: #fff;
+    border-color: var(--primary-color);
+}
+
+.exp-content {
+    flex: 1;
+    display: flex;
+    /* Added display flex column to ensure content stacks correctly */
+    flex-direction: column;
+    align-items: flex-start;
+    /* Ensure items align left */
+    width: 100%;
+    /* Take remaining width */
+}
+
+.exp-content h3 {
+    font-size: 1.6rem;
+    color: #fff;
+    margin-bottom: 5px;
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+.exp-content h4 {
+    font-size: 1.2rem;
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 12px;
+    font-weight: 600;
+    display: inline-block;
+    /* Ensure gradient works on text */
+}
+
+.exp-meta {
+    font-size: 1rem;
+    color: var(--text-muted);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 500;
+    background: rgba(255, 255, 255, 0.03);
+    padding: 5px 12px;
+    border-radius: 20px;
+    width: fit-content;
+    /* Wrap tightly */
+}
+
+.exp-desc {
+    color: #e2e8f0;
+    margin-bottom: 25px;
+    line-height: 1.8;
+    font-size: 1.05rem;
+}
+
+.exp-skills {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+    font-size: 0.95rem;
+    color: var(--text-muted);
+}
+
+.exp-skills i {
+    color: var(--accent-color);
+}
+
+.exp-attachment {
+    margin-top: 20px;
+}
+
+.attachment-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(59, 130, 246, 0.1);
+    padding: 10px 20px;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    color: var(--text-main);
+    border: 1px solid rgba(59, 130, 246, 0.3);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.attachment-badge:hover {
+    background: rgba(59, 130, 246, 0.25);
+    border-color: var(--primary-color);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
+}
+
+.attachment-badge i {
+    color: var(--text-highlight);
+}
+
+/* Responsiveness for Experience */
+@media (max-width: 768px) {
     .experience-item {
-        display: flex;
-        gap: 25px;
-        background: #1e293b;
-        /* Kartu Gelap */
-        padding: 30px;
-        border-radius: 16px;
-        border: 1px solid rgba(255, 255, 255, 0.05);
-        transition: all 0.3s ease;
+        flex-direction: column;
         align-items: flex-start;
-    }
-
-    .experience-item:hover {
-        transform: translateY(-5px);
-        border-color: rgba(255, 255, 255, 0.2);
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        gap: 20px;
+        padding: 30px;
     }
 
     .exp-icon {
         width: 60px;
         height: 60px;
-        background: rgba(59, 130, 246, 0.1);
-        /* Biru transparan */
-        color: var(--primary-color);
-        border-radius: 12px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 1.8rem;
-        flex-shrink: 0;
-    }
-
-    .exp-content {
-        flex: 1;
-    }
-
-    .exp-content h3 {
-        font-size: 1.3rem;
-        color: #f8fafc;
-        /* Putih Terang */
+        font-size: 1.6rem;
         margin-bottom: 5px;
-        font-weight: 600;
-    }
-
-    .exp-content h4 {
-        font-size: 1rem;
-        color: var(--primary-color);
-        margin-bottom: 8px;
-        font-weight: 500;
+        /* Add spacing below icon */
     }
 
     .exp-meta {
-        font-size: 0.9rem;
-        color: #94a3b8;
-        /* Slate Abu-abu */
-        margin-bottom: 15px;
-    }
-
-    .exp-desc {
-        color: #cbd5e1;
-        margin-bottom: 15px;
-        line-height: 1.6;
-    }
-
-    .exp-skills {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        color: #cbd5e1;
-        font-size: 0.9rem;
-        margin-top: 10px;
-    }
-
-    .exp-skills i {
-        color: var(--primary-color);
-    }
-
-    .exp-attachment {
-        margin-top: 15px;
-    }
-
-    .attachment-badge {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        background: rgba(255, 255, 255, 0.05);
-        padding: 8px 16px;
-        border-radius: 8px;
         font-size: 0.85rem;
-        color: #e2e8f0;
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        transition: background 0.3s;
-        cursor: default;
+        flex-wrap: wrap;
+        /* Allow wrapping on small screens */
     }
 
-    .attachment-badge:hover {
-        background: rgba(255, 255, 255, 0.1);
-    }
-
-    /* Responsiveness for Experience */
-    @media (max-width: 768px) {
-        .experience-item {
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 15px;
-            padding: 20px;
-        }
-
-        .exp-icon {
-            width: 50px;
-            height: 50px;
-            font-size: 1.5rem;
-        }
+    .exp-content h3 {
+        font-size: 1.4rem;
     }
 }
 
@@ -867,11 +1001,11 @@ main section {
 }
 
 .skill-item {
-    background-color: var(--card-bg);
-    padding: 25px;
-    border-radius: var(--border-radius-md);
-    box-shadow: var(--box-shadow);
-    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+    /* background-color: var(--card-bg); */
+    /* padding: 25px; */
+    /* border-radius: var(--border-radius-md); */
+    /* box-shadow: var(--box-shadow); */
+    /* transition: transform var(--transition-speed), box-shadow var(--transition-speed); */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -881,8 +1015,8 @@ main section {
 }
 
 .skill-item:hover {
-    transform: translateY(-8px) scale(1.02);
-    box-shadow: var(--hover-shadow);
+    /* transform: translateY(-8px) scale(1.02); */
+    /* box-shadow: var(--hover-shadow); */
 }
 
 .skill-item i {
@@ -900,57 +1034,62 @@ main section {
 /* Portfolio Section */
 #portfolio .portfolio-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 35px;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    /* Smaller min-width for more cards per row */
+    gap: 25px;
     margin-top: 40px;
 }
 
+/* Portfolio Item */
 .portfolio-item {
-    background-color: var(--card-bg);
-    border-radius: var(--border-radius-md);
-    box-shadow: var(--box-shadow);
+    background: var(--bg-card);
+    /* inherited from shared card style, but explicitly ensuring no conflicting overrides */
     overflow: hidden;
-    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
-    text-align: left;
+    padding: 0;
+    /* Clear padding for image */
     display: flex;
     flex-direction: column;
-}
-
-.portfolio-item:hover {
-    transform: translateY(-8px);
-    box-shadow: var(--hover-shadow);
 }
 
 .portfolio-item img {
     width: 100%;
-    height: 250px;
+    height: 180px;
+    /* Reduced height */
     object-fit: cover;
     display: block;
-    transition: transform 0.5s ease;
+    transition: transform 0.6s ease;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .portfolio-item:hover img {
-    transform: scale(1.05);
+    transform: scale(1.08);
 }
 
 .portfolio-item .project-info {
-    padding: 25px;
+    padding: 20px;
+    /* Reduced padding */
     display: flex;
     flex-direction: column;
     flex-grow: 1;
+    background: transparent;
+    /* Text container transparent inside card */
 }
 
 .portfolio-item h3 {
-    font-size: 1.6rem;
-    margin-bottom: 10px;
-    color: var(--dark-bg);
+    font-size: 1.25rem;
+    /* Smaller title */
+    margin-bottom: 8px;
+    color: var(--text-main);
+    font-weight: 700;
 }
 
 .portfolio-item p {
-    font-size: 0.95rem;
-    color: var(--secondary-color);
-    margin-bottom: 20px;
+    font-size: 0.9rem;
+    /* Smaller text */
+    color: var(--text-muted);
+    margin-bottom: 15px;
     flex-grow: 1;
+    line-height: 1.6;
 }
 
 .project-links {
@@ -1080,9 +1219,8 @@ main section {
 
 /* --- Footer --- */
 footer {
-    background-color: var(--dark-bg);
-    /* Menggunakan variabel biru gelap */
-    color: var(--light-text);
+    background-color: var(--bg-dark);
+    color: var(--text-muted);
     text-align: center;
     padding: 40px 0;
     font-size: 0.95rem;
@@ -1537,237 +1675,5 @@ footer p {
         transform: translateX(0px);
     }
 }
-/* ========================================================================== */
-/*                      PREMIUM DARK MODE UPGRADE (OVERRIDE)                  */
-/* ========================================================================== */
 
-:root {
-    --primary-gradient: linear-gradient(135deg, #60a5fa 0%, #3b82f6 100%);
-    --card-glass: rgba(30, 41, 59, 0.7);
-    --glass-border: 1px solid rgba(255, 255, 255, 0.08); 
-    --neon-glow: 0 0 20px rgba(59, 130, 246, 0.3);
-}
-
-/* 1. Body Background Premium */
-body {
-    background-color: #0b1120 !important; /* Deep Navy */
-    background-image: 
-        radial-gradient(at 0% 0%, rgba(59, 130, 246, 0.15) 0px, transparent 50%),
-        radial-gradient(at 100% 0%, rgba(139, 92, 246, 0.1) 0px, transparent 50%);
-}
-
-/* 2. Hero Heading Gradient */
-.hero-text h1 {
-    background: linear-gradient(to right, #ffffff, #cbd5e1);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    text-shadow: 0 10px 30px rgba(0,0,0,0.5); /* Deep Shadow */
-}
-
-.hero-text h1 .dot {
-    background: var(--primary-gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-/* 3. Button Premium Upgrade */
-.btn.primary-btn {
-    background: var(--primary-gradient) !important;
-    box-shadow: 0 10px 25px -5px rgba(59, 130, 246, 0.4);
-    border: none;
-    transition: all 0.4s ease;
-}
-
-.btn.primary-btn:hover {
-    transform: translateY(-3px) scale(1.02);
-    box-shadow: 0 20px 35px -5px rgba(59, 130, 246, 0.5);
-}
-
-/* 4. Experience Card Glassmorphism */
-.experience-item {
-    background: var(--card-glass) !important;
-    backdrop-filter: blur(12px);
-    border: var(--glass-border) !important;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-    position: relative;
-    overflow: hidden;
-}
-
-.experience-item:hover {
-    background: rgba(30, 41, 59, 0.9) !important;
-    border-color: rgba(96, 165, 250, 0.3) !important;
-    transform: translateY(-5px);
-    box-shadow: var(--neon-glow) !important;
-}
-
-.experience-item::before {
-    content: '';
-    position: absolute;
-    left: 0; top: 0; bottom: 0;
-    width: 4px;
-    background: var(--primary-gradient);
-    opacity: 0;
-    transition: 0.3s;
-}
-
-.experience-item:hover::before {
-    opacity: 1;
-}
-
-.exp-content h4 {
-    background: var(--primary-gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-weight: 700;
-}
-
-.exp-icon {
-    background: #0f172a !important;
-    box-shadow: inset 0 2px 4px rgba(0,0,0,0.5);
-    border: 1px solid rgba(255,255,255,0.05);
-}
-
-/* 5. Image Card Deep Shadow */
-.img-card {
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7) !important;
-    border: 1px solid rgba(255, 255, 255, 0.15) !important;
-}
-
-/* 6. Skills & Badges */
-.attachment-badge:hover {
-    background: rgba(59, 130, 246, 0.15) !important;
-    color: #fff !important;
-    border-color: #60a5fa !important;
-}
-
-
-/* ========================================================================== */
-/*                      READABILITY FIX (HIGH CONTRAST)                       */
-/* ========================================================================== */
-
-/* 1. Paksa Judul Jabatan jadi Putih Terang */
-.experience-item h3 {
-    color: #ffffff !important;
-    font-weight: 700;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.5); /* Bayangan teks biar makin jelas */
-}
-
-/* 2. Tanggal & Lokasi jadi Abu-abu Terang */
-.experience-item .exp-meta {
-    color: #cbd5e1 !important; /* Slate 300 (Terang) */
-    font-weight: 400;
-}
-
-/* 3. Deskripsi jadi Putih Gading */
-.experience-item .exp-desc {
-    color: #e2e8f0 !important; /* Slate 200 */
-}
-
-/* 4. Skills text jadi Abu-abu Terang */
-.experience-item .exp-skills {
-    color: #94a3b8 !important; 
-}
-
-/* 5. Perbaikan Ikon agar 'pop-up' */
-.exp-icon {
-    background: #0f172a !important; /* Background ikon solid gelap */
-    border: 1px solid rgba(255, 255, 255, 0.2) !important; /* Border terang */
-    color: #60a5fa !important; /* Ikon Biru Muda */
-    box-shadow: 0 4px 6px rgba(0,0,0,0.3) !important;
-}
-
-.exp-icon i {
-    color: #60a5fa !important; /* Pastikan ikonnya biru muda */
-}
-
-/* 6. Pastikan Nama Perusahaan Terbaca (Gradasi Terang) */
-.exp-content h4 {
-    background: linear-gradient(to right, #60a5fa, #93c5fd) !important; /* Gradasi Biru Terang */
-    -webkit-background-clip: text !important;
-    -webkit-text-fill-color: transparent !important;
-    font-weight: 700;
-    text-shadow: none !important; /* Hapus shadow jika ada yg ganggu clip */
-}
-
-
-/* ========================================================================== */
-/*                 GLOBAL DARK MODE ENFORCER (FIX ALL SECTIONS)               */
-/* ========================================================================== */
-
-/* 1. Paksa Semua Judul Section jadi Putih */
-.section-title {
-    color: #ffffff !important;
-    text-shadow: 0 4px 10px rgba(0,0,0,0.5);
-}
-
-.section-title::after {
-    background: var(--primary-gradient) !important; /* Garis bawah judul jadi gradasi */
-    box-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
-}
-
-/* 2. Ubah SEMUA Kartu (Pendidikan, Skill, Portfolio) jadi Glass Dark */
-.card, .simple-card, .skill-item, .project-info {
-    background: rgba(30, 41, 59, 0.6) !important; /* Transparan Gelap */
-    backdrop-filter: blur(10px) !important;
-    border: 1px solid rgba(255, 255, 255, 0.08) !important;
-    color: #f1f5f9 !important; /* Teks Putih */
-    box-shadow: 0 4px 6px rgba(0,0,0,0.2) !important;
-}
-
-/* Hover Effect untuk Semua Kartu */
-.card:hover, .simple-card:hover, .skill-item:hover {
-    background: rgba(30, 41, 59, 0.8) !important;
-    border-color: rgba(96, 165, 250, 0.3) !important;
-    transform: translateY(-5px);
-    box-shadow: 0 0 20px rgba(59, 130, 246, 0.2) !important;
-}
-
-/* 3. Perbaikan Warna Teks di dalam Kartu */
-h3, h4, strong {
-    color: #ffffff !important;
-}
-
-p, li, span {
-    color: #cbd5e1 !important; /* Abu-abu Terang */
-}
-
-/* Khusus Skill Item */
-.skill-item i {
-    color: #60a5fa !important; /* Ikon Biru Muda */
-    font-size: 2rem;
-    margin-bottom: 10px;
-}
-
-/* 4. Portfolio / Project Specifics */
-.portfolio-item img {
-    border-bottom: 1px solid rgba(255,255,255,0.1); /* Separator halus */
-}
-
-/* 5. Contact Form Fix */
-input, textarea {
-    background: rgba(15, 23, 42, 0.8) !important; /* Input Gelap */
-    border: 1px solid rgba(255, 255, 255, 0.1) !important;
-    color: #fff !important;
-    border-radius: 8px !important;
-}
-
-input:focus, textarea:focus {
-    border-color: #3b82f6 !important;
-    box-shadow: 0 0 10px rgba(59, 130, 246, 0.3) !important;
-    outline: none;
-}
-
-label {
-    color: #cbd5e1 !important;
-}
-
-/* 6. Footer Fix */
-footer {
-    background: #020617 !important; /* Sangat gelap */
-    border-top: 1px solid rgba(255,255,255,0.05);
-}
-
-footer p {
-    color: #94a3b8 !important;
-}
-
+/* --- Removed messy overrides. Codebase is now clean. --- */
