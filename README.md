@@ -3,7 +3,7 @@ Selamat datang di repositori portofolio pribadi saya! Saya **Kemas Muhammad Alfa
 
 
 
-[🔗* * PortofolioLanlgsung!**](https://kemasma.github.io/Portofolio_WEBSITE/)
+[🔗* * PortofolioLanlgsung!**](https://kemasma.ithub.io/Portofolio_WEBSITE/)
 ## ✨ Te
 Portofolio
 Repositori ini adalah rumah bagi kode umer untuk portofolio web profesional saya. In dirancang untuk
