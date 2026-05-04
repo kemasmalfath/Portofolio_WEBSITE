@@ -6,7 +6,7 @@ Selamat datang di repositori portofolio pribadi saya! Saya **Kemas Muhammad Alfa
 [🔗* * PortofolioLanlgsung!**](https://kemasma.github.io/Portofolio_WEBSITE/)
 ## ✨ Te
 Portofolio
-Repositori ini adalah rumah bagi kode sumer untuk portofolio web profesional saya. In dirancang untuk
+Repositori ini adalah rumah bagi kode umer untuk portofolio web profesional saya. In dirancang untuk
 * Memamerkan keahlian teknis saya dalam pengembangan web.
 * Menyajikan proyek-proyek terbaik saya dengan detail. 
 * Menjadi titik kontak utama bagi calon klien, kolaborator, atau perekrut
