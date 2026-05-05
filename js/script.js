@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     // --- Navbar & Burger Menu ---
     const navSlide = () => {
+        
         const burger = document.querySelector('.burger');
         const nav = document.querySelector('.nav-links');
         const navItems = document.querySelectorAll('.nav-links li');
