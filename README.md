@@ -3,7 +3,7 @@ Selamat datang di repositori portofolio pribadi saya! Saya **Kemas Muhammad Alfa
 
 
 
-[🔗* * PortofolioLanlgsung!**](https://kemasma.itu.io/Portofolio_WEBSI
+[🔗* * PortofolioLanlgsung!**](https://kemasma.itu.io/Portofolio_WEBS
 ## ✨ 
 Portofoli
 Repositori ini adalah rumah bagi kodumer untuk portofolo web profesional saya. I dirancang unt
