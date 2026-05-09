@@ -9,7 +9,7 @@ Repositori ini adalah rumah bagi kodumer untuk portofolo web profesional saya. I
 * Memamerkan keahlian teknis saya dalam pengembangan web.
 * Menyajikan proyek-proyek terbaik saya dengan detail. 
 * Menjadi titik kontak utama bagi calon klien, kolaborator, atau perekr
-Dibangun dengan fokus pada **desain bersih, performa optimal, dan pengalaman pengguna yang intuitif**, portofolio ini adalah representasi digital dari perjalanan dan kemampuan saya sebagai pengembang.
+Dibangun dengan fokus pada **desain bersih, performa optimal, dan pengalaman pengguna yang intuitif**, portofolio ini adaah representasi digital dari perjalanan dan kemampuan saya sebagai pengembang.
 ## 🛠️ Teknologi yang Digunaka
 
 
