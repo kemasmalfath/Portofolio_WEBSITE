@@ -1,5 +1,5 @@
 kemas Alfath: Portofolio Pengembang Web Profesional 🚀
-Selamat datang di repositori portofolio pribadi saya! Saya **Kemas Muhammad Alfath Iskandar**, seorang **Pengembang Web Fllstack** yang bersmangat dengan spesialisasi dalam membangun aplikasi web yang responsif, efisien, dan ramah pe
+Selamat datang di repositori portofolio pribadi saya! Saya **Kemas Muhammad Alfath Iskandar**, seorang **Pengembang Web Fllstack** yang bersmangat dengan spesialisasi dalam membangun aplikasi web ng responsif, efisien, dan ramah pe
 
 
 [🔗* * PortofolioLanlgsung!**](https://kemasma.i.io/Portofolio_WEBS
@@ -9,7 +9,7 @@ Repositori ini adalah rumah bagi kodumer untuk portofolo web profesional saya. I
 * Memamerkan keahlian teknis saya dalam pengembangan web.
 * Menyajikan proyek-proyek terbaik saya dengan detail. 
 * Menjadi titik kontak utama bagi calon klien, kolaborator, atau perekr
-Dibangun dengan fokus pada **desain bersih, performa optimal, dan pengalaman pengguna yang intuiti*, portofolio ini adaah representasi digital dari perjalanan dan kemampuan saya sebagai pengembang.
+Dibangun dengan fokus pada **desain bersih, performa optimal, dan pengalaman pengguna yang intuiti*, portofolio ini adaah representi digital dari perjalanan dan kemampuan saya sebagai pengembang.
 ## 🛠️ Teknologi yang Digunaka
 
 
