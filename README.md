@@ -5,7 +5,7 @@ eb Fllsck** yan bersmang denga speasasi dalam memagun aplii web ng responsif, ef
 
 
 
-[🔗* * PortofolioLanlgsung!**](https://kemama.iio/Portofolio_WEB
+[🔗* * PortofolioLanlgsung!**](https://kemama.iio/Portofolio_WE
 ## ✨ 
 Portofoli
 Repositori ini adalah rumah bagi kodumer utuk portofolo web profesional saya. I diranc
