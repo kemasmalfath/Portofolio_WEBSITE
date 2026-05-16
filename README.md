@@ -1,7 +1,7 @@
 kemas Alfath: Portofolio Pengembang Web Profesi
 Selamat datang di repositori portofolio pribadi saya! Saya **Kemas Muhammad Alfath Isndar**, seorang **Pengembang W
 
-eb Fllsck** yan bersmang denga speasasi dalam memagun aplii web ng responsif, efisien, dan 
+eb Fllsck** yan bersmang denga speasasi dalam memagun aplii web ng responsif, efisiedan 
 
 
 [🔗* * PortofolioLanlgsung!**](https://kemama.iio/Portofolio_
