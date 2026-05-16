@@ -4,7 +4,7 @@ Selamat datang di repositori portofolio pribadi saya! Saya **Kemas Muhammad Alfa
 eb Fllsck** yan bersmang denga speasasi dalam memagun aplii web ng responsif, efisiedan 
 
 
-[🔗* * PortofolioLanlgsung!**](https://kemama.iio/Portofolio_
+[🔗* * PortofolioLanlgsung!**](https://kemama.iio/Portofoio_
 ## ✨ 
 Portofo
 Repositori ini adalah rumah bagi kodumer utuk portofolo web profesional saya.
