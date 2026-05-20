@@ -1,4 +1,4 @@
-kemas Alfath: Portofolio Pengembang Web Profesi
+kemas Alfath: Portolio Pengembang Web Profesi
 Selamat datang repositori portofolio pribadi saya! Saya **Kemas ammaAlfath Isndar**, seong **Pengem
 
 eb Fllsck** yan bersmang denga speasasi dalam memagun aplii web ng responsif, es
