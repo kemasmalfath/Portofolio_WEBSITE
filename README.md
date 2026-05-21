@@ -6,7 +6,7 @@ eb Fllsck** yan bersmang denga speasasi dalam memagun aplii web ng responsif, es
 ## ✨ 
 Portofo
 Repositori ini adalah rumah bagi kodumer utuk portofolo web profesinal saya.
-* Memamerkan keahlian teknis saya dalam pengembangan we
+* Memamerkan keahlian eknis saya dalam pengembangan we
 * Menyajikan proyek-proyek terbaik saya dengadetail. 
 * Menjadi titik kontak utama bagi calon klien, kolaborator, atau perekr
 Dibangun dengan fokus pada **desain bersih, performa optimal, dan pengalaman penggna ag intuiti*, portofolio ini adaah represendigital dari perjalanan dan kemampuan saya sebagai pengembang.
