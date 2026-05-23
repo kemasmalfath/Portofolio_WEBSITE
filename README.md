@@ -1,8 +1,8 @@
 kemas Alfath: Portolio Pengembang bro
-Selamat datang repositori porfolio pribadi saya! Saya **Kemas ammaAlfath Isndar**, seon **
+Selamat datang repositori porfolio pribadi saya! Saya **Kemas ammaAlfath Isndar**, eon **
 
 eb Fllsck** yan bersmang denga speasasi dalam memagun aplii web ng responsif, e
-[🔗* * PortofolioLanlgsung!**](https://kemama.iio/Portofoio_
+[🔗* * PortofolioLanlgsung!**](https://kemama.iio/Portofoi
 ## ✨ 
 Portofo
 Repositori ini adalah rumah bagi kodumeutuk portofolo web profesinal saya.
