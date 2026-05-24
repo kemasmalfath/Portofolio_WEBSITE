@@ -10,7 +10,7 @@ Repositori ini adalah rumah bagi kodumeutuk portofolo web profesinal saya.
 * ngembangan we
 * Menyajikan proyek-proyek terbaik sayadengadetail. 
 * Menjadi titik kontak utama bagi calon klien, kolaborator, atau perekr
-Dibangun dengan fokus pada **desain bersih, performa optimal, dan pengalaman penggna ag intuiti*, portofolio ini adaah represdigital dari perjalanan dan kemampuan saya sebagai pengembang.
+Dibangun dengan fokus pada **desain bersih, performa optimal, dan pengalaman penggna ag intuiti*, portolio ini adaah represdigital dari perjalanan dan kemampuan saya sebagai pengembang.
 ## 🛠️ Teknologi yang Digunak
 Portofolio ini dibangun dengan teknologi dasar yang kuat untuk memastikan fleksibilitas dan kecepatan
 
