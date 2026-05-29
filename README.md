@@ -6,7 +6,7 @@ eb Fllsck** yan bersang denga speasasi dalam memagun aplii web ng respons
 ## 
 Portofo
 Repositori ini adalah rumah bagi kodumeutuk portofolo
-* Memamerkan keahlian eknis saya dl
+* Memamerkan keahlian eknis saya d
 * ngembangan w
 * Menyajikan proyek-proyek terbaik sayadengadetai
 * Menjadi titik kontak utama bagi calo klien, kolaborator, atau perekr
