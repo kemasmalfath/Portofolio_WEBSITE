@@ -1,267 +1,327 @@
+/* ========================================
+   MODERN TECH PORTFOLIO 2026
+   JavaScript — Interactions & Animations
+   ======================================== */
+
 document.addEventListener('DOMContentLoaded', () => {
-    // --- Navbar & Burger Menu ---
-    const navSlide = () => {
-        const burger = document.querySelector('.burger');
-        const nav = document.querySelector('.nav-links');
-        const navItems = document.querySelectorAll('.nav-links li');
-        const navbar = document.querySelector('.navbar');
-        const heroSection = document.getElementById('hero'); // Added for dynamic hero height
-        const heroHeight = heroSection ? heroSection.offsetHeight : 0; // Get hero height dynamically
 
-        burger.addEventListener('click', () => {
-            // Toggle Nav
-            nav.classList.toggle('nav-active');
-            // Burger Animation
-            burger.classList.toggle('toggle');
+    // =========================================
+    // 1. DARK MODE TOGGLE
+    // =========================================
+    const initTheme = () => {
+        const themeToggle = document.getElementById('themeToggle');
+        const html = document.documentElement;
 
-            // Animate Links
-            navItems.forEach((item, index) => {
-                if (item.style.animation) {
-                    item.style.animation = '';
-                } else {
-                    item.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 0.3}s`;
-                }
-            });
+        // Check saved preference or system preference
+        const savedTheme = localStorage.getItem('theme');
+        const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+        if (savedTheme) {
+            html.setAttribute('data-theme', savedTheme);
+        } else if (systemPrefersDark) {
+            html.setAttribute('data-theme', 'dark');
+        }
+
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
         });
 
-        // Close nav when a link is clicked
-        navItems.forEach(item => {
-            item.querySelector('a').addEventListener('click', () => {
-                nav.classList.remove('nav-active');
-                burger.classList.remove('toggle');
-                navItems.forEach(link => link.style.animation = '');
-            });
-        });
-
-        // Change navbar background on scroll
-        window.addEventListener('scroll', () => {
-            // Use the 'scrolled' class in CSS for styling, more maintainable
-            if (window.scrollY > heroHeight / 2) { // Use dynamic hero height for threshold
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
+        // Listen for system theme changes
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+            if (!localStorage.getItem('theme')) {
+                html.setAttribute('data-theme', e.matches ? 'dark' : 'light');
             }
         });
     };
 
-    // --- Active Nav Link on Scroll and Fade-in Animation ---
-    // Consolidated this from separate functions for better performance with IntersectionObserver
-    const setupScrollAnimationsAndNavHighlight = () => {
-        const sections = document.querySelectorAll('main section');
-        const navLinks = document.querySelectorAll('.nav-item');
-        const navbar = document.querySelector('.navbar'); // Get navbar reference for offset
+    // =========================================
+    // 2. NAVBAR BEHAVIOR
+    // =========================================
+    const initNavbar = () => {
+        const navbar = document.getElementById('navbar');
+        const mobileToggle = document.getElementById('mobileToggle');
+        const navLinks = document.getElementById('navLinks');
+        const allNavLinks = document.querySelectorAll('.navbar__link');
+
+        // Scroll effect — add glassmorphism after scrolling
+        let lastScrollY = 0;
+        const handleScroll = () => {
+            const scrollY = window.scrollY;
+
+            if (scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+
+            lastScrollY = scrollY;
+        };
+
+        window.addEventListener('scroll', handleScroll, { passive: true });
+        handleScroll(); // Check on load
+
+        // Mobile menu toggle
+        mobileToggle.addEventListener('click', () => {
+            mobileToggle.classList.toggle('active');
+            navLinks.classList.toggle('active');
+            document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
+        });
+
+        // Close mobile menu when link is clicked
+        allNavLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileToggle.classList.remove('active');
+                navLinks.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        });
+
+        // Close mobile menu on escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && navLinks.classList.contains('active')) {
+                mobileToggle.classList.remove('active');
+                navLinks.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+    };
+
+    // =========================================
+    // 3. ACTIVE NAV LINK HIGHLIGHT
+    // =========================================
+    const initNavHighlight = () => {
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.navbar__link');
 
         const observerOptions = {
             root: null,
-            // Adjust rootMargin based on navbar height to activate sections correctly
-            // Example: `-${navbar.offsetHeight + 10}px 0px -20% 0px`
-            // This pulls the activation point up by navbar height + some extra, and allows bottom 20% to be off screen
-            rootMargin: `-${navbar.offsetHeight + 10}px 0px -20% 0px`,
-            threshold: 0 // Activate as soon as any part of the element enters
+            rootMargin: '-20% 0px -60% 0px',
+            threshold: 0
         };
 
-        const observer = new IntersectionObserver((entries, observer) => {
+        const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-                const targetId = entry.target.getAttribute('id');
-
                 if (entry.isIntersecting) {
-                    // Add 'active' class for general section fade-in
-                    entry.target.classList.add('active');
-
-                    // Highlight active navigation link
+                    const targetId = entry.target.getAttribute('id');
                     navLinks.forEach(link => {
                         link.classList.remove('active');
                         if (link.getAttribute('href') === `#${targetId}`) {
                             link.classList.add('active');
                         }
                     });
-
-                    // Animate timeline items for 'experience' and 'education' sections
-                    if (targetId === 'experience' || targetId === 'education') {
-                        const timelineItems = entry.target.querySelectorAll('.timeline-item');
-                        timelineItems.forEach((item, index) => {
-                            // Only animate if not already active to prevent re-animation on scroll up/down
-                            if (!item.classList.contains('active')) {
-                                setTimeout(() => {
-                                    item.classList.add('active');
-                                }, index * 200); // Stagger animation
-                            }
-                        });
-                    }
-
-                    // Stop observing once animated if you only want it to animate once
-                    // observer.unobserve(entry.target);
-                } else {
-                    // Optional: remove 'active' class when section exits view, if you want re-animation
-                    // entry.target.classList.remove('active');
-                    // navLinks.forEach(link => {
-                    //     if (link.getAttribute('href') === `#${targetId}`) {
-                    //         link.classList.remove('active');
-                    //     }
-                    // });
                 }
             });
         }, observerOptions);
 
-        sections.forEach(element => {
-            observer.observe(element);
-        });
+        sections.forEach(section => observer.observe(section));
     };
 
-    // --- Typing Effect for Tagline ---
-    const typingEffect = () => {
-        const typingTextElement = document.querySelector('.typing-text');
-        const phrases = ["Pengembang Web", "Desainer UI/UX", "Public Speaker", "Pecinta Teknologi"];
+    // =========================================
+    // 4. TYPING EFFECT
+    // =========================================
+    const initTypingEffect = () => {
+        const typingElement = document.getElementById('typingText');
+        if (!typingElement) return;
+
+        const phrases = [
+            'Web Developer',
+            'AI Enthusiast',
+            'Software Engineer',
+            'Data Analyst',
+            'UI/UX Enthusiast'
+        ];
+
         let phraseIndex = 0;
         let charIndex = 0;
         let isDeleting = false;
 
-        
         const type = () => {
             const currentPhrase = phrases[phraseIndex];
-            const displayText = isDeleting
-                ? currentPhrase.substring(0, charIndex--)
-                : currentPhrase.substring(0, charIndex++);
-
-            typingTextElement.textContent = displayText;
-
-            let typeSpeed = 150; // Typing speed
 
             if (isDeleting) {
-                typeSpeed /= 2; // Deleting faster
+                typingElement.textContent = currentPhrase.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                typingElement.textContent = currentPhrase.substring(0, charIndex + 1);
+                charIndex++;
             }
 
-            if (!isDeleting && charIndex === currentPhrase.length + 1) {
-                typeSpeed = 1500; // Pause at end of phrase
+            let speed = isDeleting ? 50 : 100;
+
+            if (!isDeleting && charIndex === currentPhrase.length) {
+                speed = 2000; // Pause at end
                 isDeleting = true;
-            } else if (isDeleting && charIndex < 0) {
+            } else if (isDeleting && charIndex === 0) {
                 isDeleting = false;
-                phraseIndex = (phraseIndex + 1) % phrases.length; // Next phrase
-                typeSpeed = 300; // Pause before typing next phrase
+                phraseIndex = (phraseIndex + 1) % phrases.length;
+                speed = 400; // Pause before next phrase
             }
 
-            setTimeout(type, typeSpeed);
+            setTimeout(type, speed);
         };
 
-        if (typingTextElement) {
-            type();
-        }
+        // Start after a short delay
+        setTimeout(type, 1200);
     };
 
-    // --- Contact Form Submission ---
-    const handleContactFormSubmit = (event) => {
-        event.preventDefault(); // Prevent default form submission
+    // =========================================
+    // 5. SCROLL REVEAL ANIMATIONS
+    // =========================================
+    const initScrollReveal = () => {
+        const revealElements = document.querySelectorAll('.reveal');
 
-        const form = event.target;
-        const name = form.elements['name'].value.trim();
-        const email = form.elements['email'].value.trim();
-        const subject = form.elements['subject'].value.trim();
-        const message = form.elements['message'].value.trim();
-        const formMessages = document.getElementById('form-messages');
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px 0px -80px 0px',
+            threshold: 0.1
+        };
 
-        // Basic client-side validation
-        if (!name || !email || !subject || !message) {
-            formMessages.textContent = 'Harap isi semua kolom yang wajib diisi.';
-            formMessages.classList.remove('success');
-            formMessages.classList.add('error');
-            formMessages.style.display = 'block';
-            return;
-        }
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    // Don't unobserve — keep it persistent
+                }
+            });
+        }, observerOptions);
 
-        if (!validateEmail(email)) {
-            formMessages.textContent = 'Alamat email tidak valid.';
-            formMessages.classList.remove('success');
-            formMessages.classList.add('error');
-            formMessages.style.display = 'block';
-            return;
-        }
-        // --- IMPORTANT: Replace 'YOUR_FORMSPREE_ENDPOINT' with your actual Formspree endpoint URL ---
-        // Example: https://formspree.io/f/your_unique_hash
-        const formspreeEndpoint = 'https://formspree.io/f/your_unique_hash'; 
-        
-        const formData = new FormData(form);
-        
-        fetch(formspreeEndpoint, {
-            method: 'POST',
-            body: formData,
-            headers: {
-                'Accept': 'application/json'
-            }
-        })
-        .then(response => {
-            if (response.ok) {
-                formMessages.textContent = 'Pesan Anda telah terkirim! Saya akan segera menghubungi Anda.';
-                formMessages.classList.remove('error');
-                formMessages.classList.add('success');
-                form.reset(); // Clear form on success
-            } else {
-                return response.json().then(data => {
-                    if (data.errors) {
-                        formMessages.textContent = data.errors.map(error => error.message).join(', ');
-                    } else {
-                        formMessages.textContent = 'Terjadi kesalahan saat mengirim pesan. Mohon coba lagi.';
-                    }
-                    formMessages.classList.remove('success');
-                    formMessages.classList.add('error');
-                });
-            }
-        })
-        .catch(error => {
-            formMessages.textContent = 'Gagal terhubung ke server. Periksa koneksi internet Anda.';
-            formMessages.classList.remove('success');
-            formMessages.classList.add('error');
-        })
-        .finally(() => {
-            formMessages.style.display = 'block'; // Ensure messages are shown
-            setTimeout(() => {
-                formMessages.style.display = 'none'; // Hide message after a few seconds
-            }, 7000);
+        revealElements.forEach(el => observer.observe(el));
+    };
+
+    // =========================================
+    // 6. SMOOTH SCROLL WITH OFFSET
+    // =========================================
+    const initSmoothScroll = () => {
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetId = anchor.getAttribute('href');
+                if (targetId === '#') {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                    return;
+                }
+
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    const navHeight = document.getElementById('navbar').offsetHeight;
+                    const targetPosition = targetElement.getBoundingClientRect().top + window.scrollY - navHeight;
+
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
         });
     };
 
-    const validateEmail = (email) => {
-        const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-        return re.test(String(email).toLowerCase());
+    // =========================================
+    // 7. CONTACT FORM
+    // =========================================
+    const initContactForm = () => {
+        const form = document.getElementById('contactForm');
+        if (!form) return;
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const name = form.elements['name'].value.trim();
+            const email = form.elements['email'].value.trim();
+            const message = form.elements['message'].value.trim();
+            const formMessages = document.getElementById('formMessages');
+
+            // Validation
+            if (!name || !email || !message) {
+                showFormMessage(formMessages, 'Harap isi semua kolom yang wajib diisi.', 'error');
+                return;
+            }
+
+            if (!isValidEmail(email)) {
+                showFormMessage(formMessages, 'Alamat email tidak valid.', 'error');
+                return;
+            }
+
+            // Formspree submission
+            const formspreeEndpoint = 'https://formspree.io/f/your_unique_hash';
+            const formData = new FormData(form);
+
+            fetch(formspreeEndpoint, {
+                method: 'POST',
+                body: formData,
+                headers: { 'Accept': 'application/json' }
+            })
+            .then(response => {
+                if (response.ok) {
+                    showFormMessage(formMessages, 'Pesan berhasil terkirim! Terima kasih.', 'success');
+                    form.reset();
+                } else {
+                    showFormMessage(formMessages, 'Terjadi kesalahan. Silakan coba lagi.', 'error');
+                }
+            })
+            .catch(() => {
+                showFormMessage(formMessages, 'Gagal terhubung ke server. Periksa koneksi internet Anda.', 'error');
+            });
+        });
     };
 
-    // --- Back to Top Button ---
-    const backToTopButton = () => {
-        const button = document.querySelector('.back-to-top');
+    const showFormMessage = (element, message, type) => {
+        element.textContent = message;
+        element.className = `form-messages ${type}`;
+        element.style.display = 'block';
+
+        setTimeout(() => {
+            element.style.display = 'none';
+        }, 5000);
+    };
+
+    const isValidEmail = (email) => {
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    };
+
+    // =========================================
+    // 8. BACK TO TOP
+    // =========================================
+    const initBackToTop = () => {
+        const button = document.getElementById('backToTop');
+        if (!button) return;
 
         window.addEventListener('scroll', () => {
-            if (window.scrollY > 300) { // Show button after scrolling 300px
+            if (window.scrollY > 500) {
                 button.classList.add('show');
             } else {
                 button.classList.remove('show');
             }
-        });
+        }, { passive: true });
 
-        button.addEventListener('click', (e) => {
-            e.preventDefault();
+        button.addEventListener('click', () => {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
     };
 
-    // --- Set Current Year in Footer ---
-    const setCurrentYear = () => {
-        const yearSpan = document.getElementById('currentYear');
-        if (yearSpan) {
-            yearSpan.textContent = new Date().getFullYear();
+    // =========================================
+    // 9. CURRENT YEAR
+    // =========================================
+    const initCurrentYear = () => {
+        const yearEl = document.getElementById('currentYear');
+        if (yearEl) {
+            yearEl.textContent = new Date().getFullYear();
         }
     };
 
-    // --- Initialize all functions ---
-    navSlide();
-    typingEffect();
-    setupScrollAnimationsAndNavHighlight(); // This replaces highlightNavLink and fadeInOnScroll
-    backToTopButton();
-    setCurrentYear();
-
-    const contactForm = document.getElementById('contactForm');
-    if (contactForm) {
-        contactForm.addEventListener('submit', handleContactFormSubmit);
-    }
-
-    // Removed the testimonialsSlider() call as the section is no longer in HTML
-    // testimonialsSlider();
+    // =========================================
+    // INITIALIZE ALL
+    // =========================================
+    initTheme();
+    initNavbar();
+    initNavHighlight();
+    initTypingEffect();
+    initScrollReveal();
+    initSmoothScroll();
+    initContactForm();
+    initBackToTop();
+    initCurrentYear();
 });
