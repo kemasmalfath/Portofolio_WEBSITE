@@ -1,15 +1,21 @@
-kemas Alfath: Portofolio Pengembang Web Profesional 🚀
-Selamat datang di repositori portofolio pribadi saya! Saya **Kemas Muhammad Alfath Iskandar**, seorang **Pengembang Web Fullstack** yang bersemangat dengan spesialisasi dalam membangun aplikasi web yang responsif, efisien, dan ramah pengguna.
+kemas Alfath: Portolio Pengembang bro
+Selamat datang repositori porfolio pribadi saya! Saya **Kemas ammaAlfath Isndar**, eo
 
-[🔗 **Lihat PortofolioLangsung!**](https://kemasmalfath.github.io/Portofolio_WEBSITE/)
-## ✨ Tentang Portofolio Ini
-Repositori ini adalah rumah bagi kode sumber untuk portofolio web profesional saya. Ini dirancang untuk:
-* Memamerkan keahlian teknis saya dalam pengembangan web.
-* Menyajikan proyek-proyek terbaik saya dengan detail. 
-* Menjadi titik kontak utama bagi calon klien, kolaborator, atau perekrut
-Dibangun dengan fokus pada **desain bersih, performa optimal, dan pengalaman pengguna yang intuitif**, portofolio ini adalah representasi digital dari perjalanan dan kemampuan saya sebagai pengembang.
-## 🛠️ Teknologi yang Digunakan 
-Portofolio ini dibangun dengan teknologi dasar yang kuat untuk memastikan fleksibilitas dan kecepatan:
+eb Fllsck** yan bersang denga speasasi dalam memagun aplii web ng respons
+[🔗* * PortofolioLangsung!**](https://kemama.iio/Portof
+## 
+Portofo
+Repositori ini adalah rumah bagi kodumeutuk portofolo
+* Memamerkan keahlian eknis saya d
+* ngembangan w
+* Menyajikan proyek-proyek terbaik sayadengadetai
+* Menjadi titik kontak utama bagi calo klien, kolaborator, atau perekr
+Dibangun dengan fokus pada **desain bersih, performa optimal, dan pengalaman penggna ag intuiti*, portolio ini adaarepresdigil dari perjalanan an kmamuan aysebagai pengemng.
+## 🛠️ Teknologi yang Digunak
+Portofolio ini dibangun dengan teknologi dasar yang kuat untuk memastikan fleksibilitas dan kecepatan
+
+
+:
 * **HTML5:** Struktur konten semantik dan aksesibel.
 * **CSS3:** Styling modern dan desain responsif (dengan animasi kustom!).
 * **JavaScript (Vanilla JS):** Untuk fungsionalitas interaktif, efek ketik dinamis, dan animasi saat scroll.
