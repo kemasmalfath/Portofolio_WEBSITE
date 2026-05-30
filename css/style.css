@@ -979,10 +979,49 @@ p {
 /* ========================================
    EXPERIENCE SECTION
    ======================================== */
+.experience__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: start;
+}
+
+.experience__column {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+}
+
+.experience__column-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid var(--border);
+}
+
+.experience__column-icon {
+    width: 48px;
+    height: 48px;
+    background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
+    border-radius: var(--border-radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+    box-shadow: var(--shadow-accent);
+}
+
+.experience__column-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
 .timeline {
     position: relative;
-    max-width: 700px;
-    margin: 0 auto;
     padding-left: 40px;
 }
 
@@ -999,7 +1038,7 @@ p {
 
 .timeline__item {
     position: relative;
-    padding-bottom: 40px;
+    padding-bottom: 32px;
 }
 
 .timeline__item:last-child {
@@ -1020,6 +1059,10 @@ p {
     transition: background-color var(--transition-theme), border-color var(--transition-theme);
 }
 
+[data-theme="dark"] .timeline__dot {
+    border-color: var(--bg-secondary);
+}
+
 .timeline__card {
     background-color: var(--bg-card);
     border: 1px solid var(--border);
@@ -1034,6 +1077,64 @@ p {
     transform: translateX(4px);
 }
 
+/* Timeline Badges */
+.timeline__badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    padding: 4px 12px;
+    border-radius: var(--border-radius-full);
+    margin-bottom: 10px;
+}
+
+.timeline__badge i {
+    font-size: 0.7rem;
+}
+
+.timeline__badge--edu {
+    background-color: rgba(16, 185, 129, 0.12);
+    color: #10B981;
+}
+
+[data-theme="dark"] .timeline__badge--edu {
+    background-color: rgba(16, 185, 129, 0.15);
+    color: #34D399;
+}
+
+.timeline__badge--work {
+    background-color: rgba(14, 165, 233, 0.12);
+    color: #0EA5E9;
+}
+
+[data-theme="dark"] .timeline__badge--work {
+    background-color: rgba(14, 165, 233, 0.15);
+    color: #38BDF8;
+}
+
+.timeline__badge--org {
+    background-color: rgba(139, 92, 246, 0.12);
+    color: #8B5CF6;
+}
+
+[data-theme="dark"] .timeline__badge--org {
+    background-color: rgba(139, 92, 246, 0.15);
+    color: #A78BFA;
+}
+
+.timeline__badge--training {
+    background-color: rgba(245, 158, 11, 0.12);
+    color: #D97706;
+}
+
+[data-theme="dark"] .timeline__badge--training {
+    background-color: rgba(245, 158, 11, 0.15);
+    color: #FBBF24;
+}
+
 .timeline__date {
     font-size: 0.8rem;
     font-weight: 600;
@@ -1044,21 +1145,21 @@ p {
 }
 
 .timeline__title {
-    font-size: 1.15rem;
+    font-size: 1.1rem;
     font-weight: 700;
     color: var(--text-primary);
     margin-bottom: 4px;
 }
 
 .timeline__company {
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     color: var(--text-secondary);
     font-weight: 500;
     margin-bottom: 12px;
 }
 
 .timeline__desc {
-    font-size: 0.9rem;
+    font-size: 0.88rem;
     color: var(--text-secondary);
     line-height: 1.7;
 }
