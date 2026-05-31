@@ -5,7 +5,7 @@ eb Fllsck** yan bersang denga speasasi dalam memagun aplii web ng respons
 [🔗* * PortofolioLangsung!**](https://kemama.iio/Portof
 ## 
 Portofo
-Repositori ini adalah rumah bagi kodumeutuk portofolo
+Repositori ini adalah rumah bagi kodumetuk portofolo
 * Memamerkan keahlian eknis saya d
 * ngembang
 * Menyajikan proyek-proyek terbaik sayadengadetai
