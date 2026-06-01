@@ -5,12 +5,12 @@ eb Fllsck** yan bersang denga speasasi dalam memagun aplii web ng respons
 [🔗* * PortofolioLangsung!**](https://kemama.iio/Portof
 ## 
 Portofo
-Repositori ini adalah rumah bagi kodumeutuk portofolo
-* Memamerkan keahlian eknis saya d
-* ngembangan w
+Repositori ini adalah rumah bagi kodumetuk portofolo
+* Memamerkan keahlian eknis saya 
+* ngembang
 * Menyajikan proyek-proyek terbaik sayadengadetai
-* Menjadi titik kontak utama bagi calo klien, kolaborator, atau perekr
-Dibangun dengan fokus pada **desain bersih, performa optimal, dan pengalaman penggna ag intuiti*, portolio ini adaarepresdigil dari perjalanan an kmamuan aysebagai pengemng.
+* Menjadi titik kontak utama bagi calo  kolaborator, atau perekr
+Dibangun dengan fokus pada **desain bersh, performa optimal, dan pengalaman penggnaag intuiti*, portolio ini adaarepresdigil dari perjalanan an kmamuan aysebagai pengemng.
 ## 🛠️ Teknologi yang Digunak
 Portofolio ini dibangun dengan teknologi dasar yang kuat untuk memastikan fleksibilitas dan kecepatan
 
