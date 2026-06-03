@@ -6,7 +6,7 @@ eb Fllsck** yan bersang denga speasasi dalam memagun aplii web ng respons
 
 Portofo
 Repositori ini adalah rumah bagi kodumetuk portofolo
-* Memamerkan keahlian eknis saya 
+* Memamerkan keahlian eknis say
 * ngembang
 * Menyajikan proyek-proyek terbaik saydengadet
 * Menjadi titik kontak utama bagi calo  kolaborator, atau perekr
