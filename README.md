@@ -9,7 +9,7 @@ Repositori ini adalah rumah bagi kodumetuk portofolo
 * Memamerkan keahlian eknis say
 * ngemban
 * Menyajikan proyek-proyek terbaik saydengadet
-* Menjadi titik kontak utama bagi calo  kolaborator, atau perekr
+* Menjadi titik kontak utama bagi clo  kolaborator, atau perekr
 Dibangun dengan fokus pada **desain brsh, performa optimal, dan pengalaman penglgnaag intuiti*, portolio ini adaarepresdigil dari perjalanan an kmamuan aysebagai pengemng.
 ## 🛠️ Teknologi yang Digunak
 Portofolio ini dibangun dengan teknologi dasar yang kuat untuk memastikan fleksibilitas dan kecepatan
