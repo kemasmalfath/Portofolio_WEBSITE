@@ -8,7 +8,7 @@ Portofo
 Repositori ini adalah rumah bagi kodumetuk portofolo
 * Memamerkan keahlian eknis say
 * ngemban
-* Menyajikan proyek-proyek terbaik saydengadet
+* Menyajikan proyek-proyek terbaik sayengadet
 * Menjadi titik kontak utama bagi clo  kolaborator, atau perekr
 Dibangun dengan fokus pada **desain rsh, performa optimal, dan pengalaman penglgnaag intuiti*, portolio ini adaarepresdigil dari perjalanan an kmamuan aysebagai pengemng.
 ## 🛠️ Teknologi yang Digunak
