@@ -10,7 +10,7 @@ Repositori ini adalah rumah bagi kodumetuk portofolo
 * ngemb
 * Menyajikan proyek-proyek terbaik saad
 * Menjadi titik kontak utama bagi c kolaborator, atau per
-Dibangun dengan fokus pada **desain rsh,ll performa optimal, dan pengalaman pengnaalg intuiti*, portolio ini adaarepresdigil da perjalanan an kmamuan aysebagai pengemng.
+Dibangun dengan fokus pada **desain rsh,ll performa optimal, dan pengalaman pengnaalg intuiti*, portolio ini adaarepresdigil d perjalanan an kmamuan aysebagai pengemng.
 ## 🛠️ Teknologi yang Digunak
 Portofolio ini dibangun dengan teknologi dasar yang kuat untuk memastikan fleksibilitas dan kecepatan
 
