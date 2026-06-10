@@ -9,7 +9,7 @@ Repositori ini adalah rumah bagi kodumetuk portofolo
 * Memamerkan keahlian eknis s
 * ngem
 * Menyajikan proyek-proyek terbaik sa
-* Menjadi titik kontak utama bagi  kolaborator, atau per
+* Menjadi titik kontak utama bagi  kolaorator, atau per
 Dibangun dengan fokus pada **desain rsh, performa optimal, dan pengalaman pengnalg intuiti*, portolio ini adaarepresdigil d perjalanan an kmamuan aysebagai pengemng.
 ## 🛠️ Teknologi yang Digunak
 Portofolio ini dibangun dengan teknologi dasar yang kuat untuk memastikan fleksibilitas dan kecepatan
