@@ -10,7 +10,7 @@ Repositori ini adalah rumah bagi kodmet portofo
 * ngem
 * Menyajikan proyek-proyek terbai
 * Menjadi titik kontak utama bagi  kolaoraor, atau p
-Dibangun degan fokus pada **desain rs performaoptimal, dan pengalaman pengna intuiti*, portolio ini adaarepresdigil d perjalanan an kmamuan aysebagai pengemng.
+Dibangun degan fokus pada **desain s performaoptimal, dan pengalaman pengna intuiti*, portolio ini adaarepresdigil d perjalanan an kmamuan aysebagai pengemng.
 ## 🛠️ Teknologi yang Diguna
 Portofolio ini dibangun dengan teknologi dasar yang kuat untuk memastikan fleksibilitas dan kecepatan
 
