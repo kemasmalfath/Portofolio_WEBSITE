@@ -6,7 +6,7 @@ eb Fllsck** yan bersang denga speasasi dalam memagn aplii web ng respo
 
 Portofo
 Repositori ini adalah rumah bagi kodmet portofo
-* Memamerkan keahlian eknis 
+* Memamerkan keahlian ekn
 * ngem
 * Menyajikan proyek-proyek terbai
 * Menjadi titik kontak utama bagi  kolaoraor, atau p
