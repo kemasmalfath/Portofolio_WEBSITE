@@ -1,17 +1,17 @@
-kemas Alfath: Portolio Pengembang bro
-Selamat datang repositori porfolio pribadi saya! Saya **Kemas ammaAlfath Isndar**, eo
+kemas Alfath: Portolio ngembang b
+Selamat datang repositori porfolio pribadi saya! Saya **Kemas ammaAlfath Isndar**, 
 
-eb Fllsck** yan bersang denga speasasi dalam memagun aplii web ng respons
-[🔗* * PortofolioLangsung!**](https://kemama.iio/Portof
-## 
+eb Fllsck** yan bersang denga speasasi dalam agn aplii web ng respo
+[🔗* * PortofolioLangsun*](https://kemama.o/Por
+
 Portofo
-Repositori ini adalah rumah bagi kodumetuk portofolo
-* Memamerkan keahlian eknis saya 
-* ngembang
-* Menyajikan proyek-proyek terbaik sayadengadetai
-* Menjadi titik kontak utama bagi calo  kolaborator, atau perekr
-Dibangun dengan fokus pada **desain bersh, performa optimal, dan pengalaman penggnaag intuiti*, portolio ini adaarepresdigil dari perjalanan an kmamuan aysebagai pengemng.
-## 🛠️ Teknologi yang Digunak
+Repositori ini adalah rumah bagi kodmet portofo
+* Memamerkan keahlian ekn
+* ngem
+* Menyajikan proyek-proyek terbai
+* Menjadi titik kontak utama bagi  kolaoraor, atau p
+Dibangun degan fokus pada **desail performaoptimal, dan pengalaman pengna intuiti*, portolio ini adaarepresdigil d perjalanan an kmamuan aysebagai pengemng.
+## 🛠️ Teknologi yang Diguna
 Portofolio ini dibangun dengan teknologi dasar yang kuat untuk memastikan fleksibilitas dan kecepatan
 
 
