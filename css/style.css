@@ -895,6 +895,49 @@ p {
     transition: color var(--transition-theme);
 }
 
+/* --- Highlight Categories --- */
+.skill-card.highlight-python {
+    border: 2px solid #3776AB;
+    box-shadow: 0 4px 12px rgba(55, 118, 171, 0.2);
+}
+.skill-card.highlight-python .skill-card__icon {
+    color: #3776AB;
+    background-color: rgba(55, 118, 171, 0.1);
+}
+.skill-card.highlight-python:hover {
+    box-shadow: 0 8px 16px rgba(55, 118, 171, 0.3);
+    transform: translateY(-5px);
+}
+
+.skill-card.highlight-js {
+    border: 2px solid #F7DF1E;
+    box-shadow: 0 4px 12px rgba(247, 223, 30, 0.2);
+}
+.skill-card.highlight-js .skill-card__icon {
+    color: #b5a30e; /* Darker for better contrast in light mode */
+    background-color: rgba(247, 223, 30, 0.1);
+}
+[data-theme="dark"] .skill-card.highlight-js .skill-card__icon {
+    color: #F7DF1E;
+}
+.skill-card.highlight-js:hover {
+    box-shadow: 0 8px 16px rgba(247, 223, 30, 0.3);
+    transform: translateY(-5px);
+}
+
+.skill-card.highlight-sql {
+    border: 2px solid #336791;
+    box-shadow: 0 4px 12px rgba(51, 103, 145, 0.2);
+}
+.skill-card.highlight-sql .skill-card__icon {
+    color: #336791;
+    background-color: rgba(51, 103, 145, 0.1);
+}
+.skill-card.highlight-sql:hover {
+    box-shadow: 0 8px 16px rgba(51, 103, 145, 0.3);
+    transform: translateY(-5px);
+}
+
 /* ========================================
    PROJECTS SECTION
    ======================================== */

@@ -128,11 +128,11 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!typingElement) return;
 
         const phrases = [
-            'Web Developer',
-            'AI Enthusiast',
-            'Software Engineer',
-            'Data Analyst',
-            'UI/UX Enthusiast'
+            'Python Developer',
+            'Data Science Enthusiast',
+            'Machine Learning Learner',
+            'JavaScript Web Developer',
+            'Security Analyst'
         ];
 
         let phraseIndex = 0;
