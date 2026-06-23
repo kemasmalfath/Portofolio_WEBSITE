@@ -1,8 +1,7 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="id" data-theme="light">
 
 <head>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
@@ -13,211 +12,805 @@
     <title>All Projects - Kemas Alfath</title>
 
     <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
-
-    <!-- Font: Segoe UI (System Default) -->
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        /* ===== Projects Page Styles ===== */
+
+        .projects-hero {
+            min-height: 38vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: var(--hero-gradient);
+            padding-top: calc(var(--nav-height) + 40px);
+            padding-bottom: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .projects-hero__orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(100px);
+            opacity: 0.3;
+        }
+
+        .projects-hero__orb--1 {
+            width: 400px; height: 400px;
+            background: radial-gradient(circle, var(--accent-glow-strong), transparent 70%);
+            top: -15%; right: -5%;
+        }
+
+        .projects-hero__orb--2 {
+            width: 300px; height: 300px;
+            background: radial-gradient(circle, var(--accent-glow), transparent 70%);
+            bottom: -15%; left: -5%;
+        }
+
+        .projects-hero__content { position: relative; z-index: 2; }
+
+        .projects-hero__label {
+            display: inline-block; font-size: 0.8rem; font-weight: 600;
+            text-transform: uppercase; letter-spacing: 2px; color: var(--accent); margin-bottom: 12px;
+        }
+
+        .projects-hero__title {
+            font-size: 3rem; font-weight: 800; letter-spacing: -0.03em; margin-bottom: 12px;
+        }
+
+        .projects-hero__subtitle {
+            font-size: 1.1rem; color: var(--text-secondary); max-width: 600px; margin: 0 auto;
+        }
+
+        /* Stats Row */
+        .projects-stats {
+            display: flex; justify-content: center; gap: 40px; margin-top: 28px; flex-wrap: wrap;
+        }
+
+        .projects-stats__item { text-align: center; }
+
+        .projects-stats__number {
+            font-size: 1.8rem; font-weight: 800; color: var(--accent); display: block;
+        }
+
+        .projects-stats__label {
+            font-size: 0.8rem; color: var(--text-tertiary); text-transform: uppercase; letter-spacing: 1px;
+        }
+
+        /* Filter Bar */
+        .projects-filter {
+            padding: 20px 0;
+            position: sticky; top: var(--nav-height); z-index: 50;
+            background-color: var(--bg-primary);
+            border-bottom: 1px solid var(--border-light);
+            transition: background-color var(--transition-theme);
+            backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+        }
+
+        [data-theme="dark"] .projects-filter { background-color: rgba(47, 47, 47, 0.92); }
+
+        .projects-filter__inner {
+            display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+        }
+
+        .projects-filter__label {
+            font-size: 0.85rem; font-weight: 600; color: var(--text-tertiary);
+            text-transform: uppercase; letter-spacing: 1px; margin-right: 4px;
+        }
+
+        .filter-btn {
+            padding: 8px 20px; border: 1.5px solid var(--border); background: var(--bg-card);
+            color: var(--text-secondary); border-radius: var(--border-radius-full);
+            cursor: pointer; font-size: 0.85rem; font-weight: 600; font-family: var(--font-sans);
+            transition: all var(--transition-fast); display: inline-flex; align-items: center; gap: 6px;
+        }
+
+        .filter-btn i { font-size: 0.8em; }
+
+        .filter-btn:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-glow); }
+
+        .filter-btn.active {
+            background: var(--accent); color: white; border-color: var(--accent);
+            box-shadow: 0 2px 8px rgba(0, 120, 212, 0.25);
+        }
+
+        [data-theme="dark"] .filter-btn { background: rgba(255,255,255,0.06); backdrop-filter: blur(8px); }
+        [data-theme="dark"] .filter-btn:hover { background: rgba(0,120,212,0.15); }
+        [data-theme="dark"] .filter-btn.active { background: var(--accent); }
+
+        .projects-count { font-size: 0.85rem; color: var(--text-tertiary); margin-left: auto; }
+        .projects-count strong { color: var(--accent); }
+
+        /* Section */
+        .projects-section { padding: 48px 0 80px; }
+
+        /* Category Group */
+        .category-group { margin-bottom: 56px; }
+        .category-group:last-child { margin-bottom: 0; }
+
+        .category-header {
+            display: flex; align-items: center; gap: 12px; margin-bottom: 28px;
+            padding-bottom: 14px; border-bottom: 2px solid var(--border-light);
+        }
+
+        .category-header__icon {
+            width: 40px; height: 40px; border-radius: var(--border-radius-sm);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.1rem; color: white; flex-shrink: 0;
+        }
+
+        .category-header__text h3 { font-size: 1.25rem; font-weight: 700; margin-bottom: 2px; }
+        .category-header__text p { font-size: 0.85rem; color: var(--text-tertiary); margin: 0; }
+
+        .category-header__count {
+            margin-left: auto; font-size: 0.8rem; font-weight: 600; padding: 4px 12px;
+            border-radius: var(--border-radius-full); background: var(--bg-secondary); color: var(--text-tertiary);
+        }
+
+        /* Project Grid */
+        .projects-grid {
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(360px, 1fr)); gap: 24px;
+        }
+
+        /* ===== PROJECT CARD ===== */
+        .pcard {
+            background: var(--bg-card); border: 1px solid var(--border);
+            border-radius: var(--border-radius-lg); overflow: hidden;
+            transition: all var(--transition-base); display: flex; flex-direction: column;
+        }
+
+        .pcard:hover {
+            box-shadow: var(--shadow-lg); border-color: var(--accent); transform: translateY(-4px);
+        }
+
+        .pcard__header {
+            height: 150px; display: flex; align-items: center; justify-content: center;
+            color: white; font-size: 2.5rem; position: relative; overflow: hidden;
+        }
+
+        .pcard__header::after {
+            content: ''; position: absolute; inset: 0;
+            background: linear-gradient(to bottom, transparent 40%, rgba(0,0,0,0.2) 100%);
+        }
+
+        /* Type badge */
+        .pcard__type-badge {
+            position: absolute; top: 12px; left: 12px; z-index: 2;
+            display: inline-flex; align-items: center; gap: 5px;
+            padding: 5px 12px; border-radius: var(--border-radius-full);
+            font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+            letter-spacing: 0.5px; color: white; backdrop-filter: blur(8px);
+        }
+
+        .pcard__type-badge--ml   { background: rgba(55, 118, 171, 0.85); }
+        .pcard__type-badge--ds   { background: rgba(16, 185, 129, 0.85); }
+        .pcard__type-badge--web  { background: rgba(14, 165, 233, 0.85); }
+        .pcard__type-badge--sec  { background: rgba(239, 68, 68, 0.85); }
+
+        /* Featured star */
+        .pcard__featured {
+            position: absolute; top: 12px; right: 12px; z-index: 2;
+            width: 28px; height: 28px; border-radius: 50%;
+            background: rgba(245, 158, 11, 0.9); backdrop-filter: blur(8px);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 0.7rem; color: white;
+        }
+
+        .pcard__body { padding: 20px; display: flex; flex-direction: column; flex: 1; }
+
+        .pcard__title { font-size: 1.1rem; font-weight: 700; margin-bottom: 8px; line-height: 1.3; }
+
+        .pcard__desc {
+            font-size: 0.88rem; color: var(--text-secondary); line-height: 1.65; margin-bottom: 14px;
+        }
+
+        /* Meta info */
+        .pcard__meta {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 8px;
+            margin-bottom: 14px; padding: 12px; border-radius: var(--border-radius-sm);
+            background: var(--bg-secondary); border: 1px solid var(--border-light);
+        }
+
+        .pcard__meta-item {
+            display: flex; align-items: center; gap: 6px;
+            font-size: 0.8rem; color: var(--text-secondary);
+        }
+
+        .pcard__meta-item i { color: var(--accent); font-size: 0.8em; width: 14px; text-align: center; }
+        .pcard__meta-item strong { color: var(--text-primary); font-weight: 600; }
+
+        /* Tech tags */
+        .pcard__tech { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 16px; }
+
+        .pcard__tag {
+            font-size: 0.73rem; font-weight: 600; padding: 3px 10px;
+            border-radius: var(--border-radius-full); background: var(--bg-secondary);
+            color: var(--text-secondary); border: 1px solid var(--border-light);
+        }
+
+        .pcard__tag--primary { background: var(--accent-glow); color: var(--accent); border-color: var(--accent); }
+
+        .pcard__links { display: flex; gap: 8px; margin-top: auto; }
+
+        .pcard.hidden { display: none; }
+
+        .projects-back { text-align: center; padding: 0 0 80px; }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .projects-hero__title { font-size: 2rem; }
+            .projects-grid { grid-template-columns: 1fr; }
+            .projects-filter__inner { justify-content: center; }
+            .projects-count { width: 100%; text-align: center; margin-left: 0; margin-top: 8px; }
+            .pcard__meta { grid-template-columns: 1fr; }
+            .projects-stats { gap: 24px; }
+        }
+    </style>
 </head>
 
 <body>
-    <header id="hero" style="min-height: 50vh; padding-top: 100px;">
-        <div class="container">
-            <nav class="navbar">
-                <div class="logo">
-                    <a href="index.html">
-                        <img src="foto/Logo_TTT.png" alt="Kemas M Alfath">
-                    </a>
-                </div>
-                <ul class="nav-links">
-                    <li><a href="index.html#about" class="nav-item">About</a></li>
-                    <li><a href="index.html#education" class="nav-item">Pendidikan</a></li>
-                    <li><a href="index.html#experience" class="nav-item">Experience</a></li>
-                    <li><a href="index.html#skills" class="nav-item">Skills</a></li>
-                    <li><a href="index.html#portfolio" class="nav-item active">Portfolio</a></li>
-                    <li><a href="index.html#contact" class="nav-item">Contact</a></li>
-                </ul>
-                <div class="burger">
-                    <div class="line1"></div>
-                    <div class="line2"></div>
-                    <div class="line3"></div>
-                </div>
-            </nav>
 
-            <div class="hero-content" style="justify-content: center; text-align: center; margin-top: 20px;">
-                <div class="hero-text" style="text-align: center;">
-                    <h1 class="animate-fade-in-up">All Projects</h1>
-                    <p class="tagline animate-fade-in-up delay-1">Kumpulan karya, eksplorasi, dan inovasi teknologi
-                        saya.</p>
+    <!-- ========== NAVBAR ========== -->
+    <nav class="navbar scrolled" id="navbar">
+        <div class="navbar__inner">
+            <a href="index.html" class="navbar__logo">
+                <img src="foto/Logo_TTT.png" alt="Logo Kemas Alfath" class="navbar__logo-icon"
+                    style="background: transparent; object-fit: contain;">
+                <span>Kemas Alfath</span>
+            </a>
+            <ul class="navbar__links" id="navLinks">
+                <li><a href="index.html#hero" class="navbar__link">Home</a></li>
+                <li><a href="index.html#about" class="navbar__link">About</a></li>
+                <li><a href="index.html#skills" class="navbar__link">Skills</a></li>
+                <li><a href="index.html#projects" class="navbar__link active">Projects</a></li>
+                <li><a href="index.html#experience" class="navbar__link">Experience</a></li>
+                <li><a href="index.html#certificates" class="navbar__link">Certificates</a></li>
+                <li><a href="index.html#contact" class="navbar__link">Contact</a></li>
+            </ul>
+            <div class="navbar__actions">
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+                    <i class="fas fa-sun"></i>
+                    <i class="fas fa-moon"></i>
+                </button>
+                <a href="assets/CV_Kemas_2025.pdf" download class="btn btn--primary btn--sm navbar__cv-btn">
+                    <i class="fas fa-download"></i> Download CV
+                </a>
+                <button class="navbar__mobile-toggle" id="mobileToggle" aria-label="Toggle menu">
+                    <i class="fas fa-bars"></i>
+                    <i class="fas fa-xmark"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ========== HERO ========== -->
+    <section class="projects-hero">
+        <div class="projects-hero__orb projects-hero__orb--1"></div>
+        <div class="projects-hero__orb projects-hero__orb--2"></div>
+        <div class="container">
+            <div class="projects-hero__content">
+                <span class="projects-hero__label">Portfolio</span>
+                <h1 class="projects-hero__title">All Projects</h1>
+                <p class="projects-hero__subtitle">End-to-end projects spanning AI/ML, Data Analytics, Full-Stack Development, dan Cybersecurity — dari konsep hingga deployment.</p>
+                <div class="projects-stats">
+                    <div class="projects-stats__item">
+                        <span class="projects-stats__number">12</span>
+                        <span class="projects-stats__label">Projects</span>
+                    </div>
+                    <div class="projects-stats__item">
+                        <span class="projects-stats__number">4</span>
+                        <span class="projects-stats__label">Categories</span>
+                    </div>
+                    <div class="projects-stats__item">
+                        <span class="projects-stats__number">15+</span>
+                        <span class="projects-stats__label">Tech Used</span>
+                    </div>
                 </div>
             </div>
         </div>
-    </header>
+    </section>
 
     <main>
-        <section id="portfolio" class="section fade-in active">
+        <!-- ========== FILTER BAR ========== -->
+        <div class="projects-filter" id="projectFilter">
             <div class="container">
-                <div class="projects__grid">
-                    <!-- 1. Analisis Sentimen -->
-                    <div class="portfolio-item card" style="border: 1px solid #3776AB;">
-                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=500&auto=format&fit=crop&q=60"
-                            alt="Analisis Sentimen">
-                        <div class="project-info">
-                            <h3>Analisis Sentimen AI</h3>
-                            <p>Dashboard analisis opini publik Twitter/X dengan Python & NLP.</p>
-                            <div class="project-links">
-                                <a href="#" class="btn secondary-btn small-btn"><i class="fas fa-eye"></i> Demo</a>
-                                <a href="#" class="btn secondary-btn small-btn"><i class="fab fa-github"></i> Code</a>
-                            </div>
-                        </div>
-                    </div>
+                <div class="projects-filter__inner">
+                    <span class="projects-filter__label"><i class="fas fa-filter"></i> Filter:</span>
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="ai-ml"><i class="fas fa-brain"></i> AI / ML</button>
+                    <button class="filter-btn" data-filter="data-science"><i class="fas fa-chart-line"></i> Data Science</button>
+                    <button class="filter-btn" data-filter="web-dev"><i class="fas fa-code"></i> Web Dev</button>
+                    <button class="filter-btn" data-filter="security"><i class="fas fa-shield-alt"></i> Security</button>
+                    <span class="projects-count" id="projectCount">Showing <strong>12</strong> projects</span>
+                </div>
+            </div>
+        </div>
 
-                    <!-- 2. Prediksi Harga Rumah -->
-                    <div class="portfolio-item card" style="border: 1px solid #10B981;">
-                        <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=500&auto=format&fit=crop&q=60"
-                            alt="Prediksi Harga Rumah">
-                        <div class="project-info">
-                            <h3>House Price Prediction</h3>
-                            <p>Model Machine Learning regresi untuk estimasi harga properti.</p>
-                            <div class="project-links">
-                                <a href="#" class="btn secondary-btn small-btn"><i class="fas fa-eye"></i> Demo</a>
-                                <a href="#" class="btn secondary-btn small-btn"><i class="fab fa-github"></i> Code</a>
-                            </div>
-                        </div>
-                    </div>
+        <!-- ========== PROJECTS ========== -->
+        <section class="projects-section">
+            <div class="container">
 
-                    <!-- 3. Face Mask Detection -->
-                    <div class="portfolio-item card" style="border: 1px solid #8B5CF6;">
-                        <img src="https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04?w=500&auto=format&fit=crop&q=60"
-                            alt="Deteksi Masker">
-                        <div class="project-info">
-                            <h3>Face Mask Detection</h3>
-                            <p>Sistem Computer Vision deteksi penggunaan masker real-time.</p>
-                            <div class="project-links">
-                                <a href="#" class="btn secondary-btn small-btn"><i class="fas fa-eye"></i> Demo</a>
-                                <a href="#" class="btn secondary-btn small-btn"><i class="fab fa-github"></i> Code</a>
-                            </div>
+                <!-- ═══════════════════════════════ -->
+                <!-- ══ AI / MACHINE LEARNING ══════ -->
+                <!-- ═══════════════════════════════ -->
+                <div class="category-group" data-category-group="ai-ml">
+                    <div class="category-header">
+                        <div class="category-header__icon" style="background: linear-gradient(135deg, #3776AB, #2B5B84);"><i class="fas fa-brain"></i></div>
+                        <div class="category-header__text">
+                            <h3>AI / Machine Learning</h3>
+                            <p>End-to-end ML pipelines, NLP, dan Computer Vision</p>
                         </div>
+                        <span class="category-header__count">4 projects</span>
                     </div>
+                    <div class="projects-grid">
 
-                    <!-- 4. E-Commerce -->
-                    <div class="portfolio-item card">
-                        <img src="https://images.unsplash.com/photo-1557821552-17105176677c?w=500&auto=format&fit=crop&q=60"
-                            alt="Proyek E-Commerce Modern">
-                        <div class="project-info">
-                            <h3>Platform E-Commerce</h3>
-                            <p>Platform belanja online fitur lengkap dengan React.js & Node.js.</p>
-                            <div class="project-links">
-                                <a href="#" class="btn secondary-btn small-btn"><i class="fas fa-eye"></i> Demo</a>
-                                <a href="#" class="btn secondary-btn small-btn"><i class="fab fa-github"></i> Code</a>
+                        <!-- 1 ★ Customer Churn Prediction -->
+                        <div class="pcard" data-category="ai-ml">
+                            <div class="pcard__header" style="background: linear-gradient(135deg, #3776AB, #1E3A5F);">
+                                <span class="pcard__type-badge pcard__type-badge--ml"><i class="fas fa-robot"></i> Classification</span>
+                                <span class="pcard__featured" title="Featured"><i class="fas fa-star"></i></span>
+                                <i class="fas fa-user-slash"></i>
+                            </div>
+                            <div class="pcard__body">
+                                <h3 class="pcard__title">Customer Churn Prediction System</h3>
+                                <p class="pcard__desc">End-to-end ML pipeline prediksi churn pelanggan telekomunikasi dengan akurasi 94.2%. Mencakup EDA, feature engineering, model comparison (XGBoost, Random Forest, Logistic Regression), dan deployment sebagai REST API.</p>
+                                <div class="pcard__meta">
+                                    <div class="pcard__meta-item"><i class="fas fa-clock"></i> <span>Durasi: <strong>3 bulan</strong></span></div>
+                                    <div class="pcard__meta-item"><i class="fas fa-tag"></i> <span>Jenis: <strong>ML Pipeline</strong></span></div>
+                                    <div class="pcard__meta-item"><i class="fas fa-users"></i> <span>Tim: <strong>Solo</strong></span></div>
+                                    <div class="pcard__meta-item"><i class="fas fa-bullseye"></i> <span>Akurasi: <strong>94.2%</strong></span></div>
+                                </div>
+                                <div class="pcard__tech">
+                                    <span class="pcard__tag pcard__tag--primary">Python</span>
+                                    <span class="pcard__tag">XGBoost</span>
+                                    <span class="pcard__tag">Scikit-Learn</span>
+                                    <span class="pcard__tag">Flask API</span>
+                                    <span class="pcard__tag">Pandas</span>
+                                </div>
+                                <div class="pcard__links">
+                                    <a href="#" class="btn btn--ghost btn--sm"><i class="fas fa-external-link-alt"></i> Demo</a>
+                                    <a href="https://github.com/kemasmalfath" target="_blank" class="btn btn--secondary btn--sm"><i class="fab fa-github"></i> Code</a>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <!-- 5. Project Mgmt -->
-                    <div class="portfolio-item card">
-                        <img src="https://images.unsplash.com/photo-1507925921958-8a62f3d1a50d?w=500&auto=format&fit=crop&q=60"
-                            alt="Aplikasi Manajemen Proyek">
-                        <div class="project-info">
-                            <h3>Task Management App</h3>
-                            <p>Aplikasi kolaborasi tim real-time dengan Vue.js & Firebase.</p>
-                            <div class="project-links">
-                                <a href="#" class="btn secondary-btn small-btn"><i class="fas fa-eye"></i> Demo</a>
-                                <a href="#" class="btn secondary-btn small-btn"><i class="fab fa-github"></i> Code</a>
+                        <!-- 2 ★ Sentiment Analysis Dashboard -->
+                        <div class="pcard" data-category="ai-ml">
+                            <div class="pcard__header" style="background: linear-gradient(135deg, #EC4899, #9D174D);">
+                                <span class="pcard__type-badge pcard__type-badge--ml"><i class="fas fa-robot"></i> NLP</span>
+                                <span class="pcard__featured" title="Featured"><i class="fas fa-star"></i></span>
+                                <i class="fas fa-comments"></i>
+                            </div>
+                            <div class="pcard__body">
+                                <h3 class="pcard__title">Real-Time Sentiment Analysis Dashboard</h3>
+                                <p class="pcard__desc">Dashboard NLP real-time yang menganalisis sentimen publik dari Twitter/X menggunakan BERT fine-tuned. Visualisasi tren sentimen, word cloud, dan alert system untuk brand monitoring.</p>
+                                <div class="pcard__meta">
+                                    <div class="pcard__meta-item"><i class="fas fa-clock"></i> <span>Durasi: <strong>2.5 bulan</strong></span></div>
+                                    <div class="pcard__meta-item"><i class="fas fa-tag"></i> <span>Jenis: <strong>NLP / Dashboard</strong></span></div>
+                                    <div class="pcard__meta-item"><i class="fas fa-users"></i> <span>Tim: <strong>Solo</strong></span></div>
+                                    <div class="pcard__meta-item"><i class="fas fa-bullseye"></i> <span>F1-Score: <strong>91.5%</strong></span></div>
+                                </div>
+                                <div class="pcard__tech">
+                                    <span class="pcard__tag pcard__tag--primary">Python</span>
+                                    <span class="pcard__tag">BERT</span>
+                                    <span class="pcard__tag">Streamlit</span>
+                                    <span class="pcard__tag">Twitter API</span>
+                                    <span class="pcard__tag">Plotly</span>
+                                </div>
+                                <div class="pcard__links">
+                                    <a href="#" class="btn btn--ghost btn--sm"><i class="fas fa-external-link-alt"></i> Live App</a>
+                                    <a href="https://github.com/kemasmalfath" target="_blank" class="btn btn--secondary btn--sm"><i class="fab fa-github"></i> Code</a>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <!-- 6. Finance Dashboard -->
-                    <div class="portfolio-item card">
-                        <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=500&auto=format&fit=crop&q=60"
-                            alt="Dashboard Keuangan">
-                        <div class="project-info">
-                            <h3>Personal Finance App</h3>
-                            <p>Pencatat keuangan pribadi dengan visualisasi data interaktif.</p>
-                            <div class="project-links">
-                                <a href="#" class="btn secondary-btn small-btn"><i class="fas fa-eye"></i> Demo</a>
-                                <a href="#" class="btn secondary-btn small-btn"><i class="fab fa-github"></i> Code</a>
+                        <!-- 3. Stress Diagnosis Expert System -->
+                        <div class="pcard" data-category="ai-ml">
+                            <div class="pcard__header" style="background: linear-gradient(135deg, #8B5CF6, #5B21B6);">
+                                <span class="pcard__type-badge pcard__type-badge--ml"><i class="fas fa-robot"></i> Expert System</span>
+                                <i class="fas fa-brain"></i>
+                            </div>
+                            <div class="pcard__body">
+                                <h3 class="pcard__title">Stress Diagnosis Expert System</h3>
+                                <p class="pcard__desc">Sistem pakar diagnosa tingkat stres mahasiswa menggunakan forward chaining & certainty factor. Web app interaktif dengan 15 rule base dan rekomendasi penanganan.</p>
+                                <div class="pcard__meta">
+                                    <div class="pcard__meta-item"><i class="fas fa-clock"></i> <span>Durasi: <strong>3 bulan</strong></span></div>
+                                    <div class="pcard__meta-item"><i class="fas fa-tag"></i> <span>Jenis: <strong>Expert System</strong></span></div>
+                                    <div class="pcard__meta-item"><i class="fas fa-users"></i> <span>Tim: <strong>Solo</strong></span></div>
+                                    <div class="pcard__meta-item"><i class="fas fa-bullseye"></i> <span>Rules: <strong>15 rules</strong></span></div>
+                                </div>
+                                <div class="pcard__tech">
+                                    <span class="pcard__tag pcard__tag--primary">Python</span>
+                                    <span class="pcard__tag">Flask</span>
+                                    <span class="pcard__tag">Scikit-Learn</span>
+                                    <span class="pcard__tag">Bootstrap</span>
+                                </div>
+                                <div class="pcard__links">
+                                    <a href="#" class="btn btn--ghost btn--sm"><i class="fas fa-external-link-alt"></i> Demo</a>
+                                    <a href="https://github.com/kemasmalfath" target="_blank" class="btn btn--secondary btn--sm"><i class="fab fa-github"></i> Code</a>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <!-- 7. SIA -->
-                    <div class="portfolio-item card">
-                        <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=500&auto=format&fit=crop&q=60"
-                            alt="Sistem Informasi Akademik">
-                        <div class="project-info">
-                            <h3>Sistem Akademik Kampus</h3>
-                            <p>Manajemen data mahasiswa & jadwal kuliah berbasis Laravel.</p>
-                            <div class="project-links">
-                                <a href="#" class="btn secondary-btn small-btn"><i class="fas fa-eye"></i> Demo</a>
-                                <a href="#" class="btn secondary-btn small-btn"><i class="fab fa-github"></i> Code</a>
+                        <!-- 4. Product Recommendation Engine -->
+                        <div class="pcard" data-category="ai-ml">
+                            <div class="pcard__header" style="background: linear-gradient(135deg, #F59E0B, #B45309);">
+                                <span class="pcard__type-badge pcard__type-badge--ml"><i class="fas fa-robot"></i> Recommender</span>
+                                <i class="fas fa-wand-magic-sparkles"></i>
+                            </div>
+                            <div class="pcard__body">
+                                <h3 class="pcard__title">Product Recommendation Engine</h3>
+                                <p class="pcard__desc">Sistem rekomendasi produk menggunakan collaborative filtering & content-based filtering. Hybrid approach dengan matrix factorization untuk e-commerce dataset 100K+ transaksi.</p>
+                                <div class="pcard__meta">
+                                    <div class="pcard__meta-item"><i class="fas fa-clock"></i> <span>Durasi: <strong>2 bulan</strong></span></div>
+                                    <div class="pcard__meta-item"><i class="fas fa-tag"></i> <span>Jenis: <strong>RecSys / ML</strong></span></div>
+                                    <div class="pcard__meta-item"><i class="fas fa-users"></i> <span>Tim: <strong>Solo</strong></span></div>
+                                    <div class="pcard__meta-item"><i class="fas fa-database"></i> <span>Data: <strong>100K+ rows</strong></span></div>
+                                </div>
+                                <div class="pcard__tech">
+                                    <span class="pcard__tag pcard__tag--primary">Python</span>
+                                    <span class="pcard__tag">Surprise</span>
+                                    <span class="pcard__tag">Pandas</span>
+                                    <span class="pcard__tag">FastAPI</span>
+                                </div>
+                                <div class="pcard__links">
+                                    <a href="#" class="btn btn--ghost btn--sm"><i class="fas fa-external-link-alt"></i> Notebook</a>
+                                    <a href="https://github.com/kemasmalfath" target="_blank" class="btn btn--secondary btn--sm"><i class="fab fa-github"></i> Code</a>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <!-- 8. Book API -->
-                    <div class="portfolio-item card">
-                        <img src="https://images.unsplash.com/photo-1507842217121-9e93ca0a836d?w=500&auto=format&fit=crop&q=60"
-                            alt="API Buku">
-                        <div class="project-info">
-                            <h3>Library RESTful API</h3>
-                            <p>Backend service lengkap untuk perpustakaan digital (Node.js).</p>
-                            <div class="project-links">
-                                <a href="#" class="btn secondary-btn small-btn"><i class="fas fa-eye"></i> Demo</a>
-                                <a href="#" class="btn secondary-btn small-btn"><i class="fab fa-github"></i> Code</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- 9. Company Site -->
-                    <div class="portfolio-item card">
-                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500&auto=format&fit=crop&q=60"
-                            alt="Situs Web Perusahaan">
-                        <div class="project-info">
-                            <h3>Corporate Website</h3>
-                            <p>Website responsif dan SEO-friendly untuk startup teknologi.</p>
-                            <div class="project-links">
-                                <a href="#" class="btn secondary-btn small-btn"><i class="fas fa-eye"></i> Demo</a>
-                                <a href="#" class="btn secondary-btn small-btn"><i class="fab fa-github"></i> Code</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- 10. Coffee Shop -->
-                    <div class="portfolio-item card">
-                        <img src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=500&auto=format&fit=crop&q=60"
-                            alt="Coffee Shop">
-                        <div class="project-info">
-                            <h3>Coffee Shop Landing</h3>
-                            <p>Website promosi kafe dengan desain estetik dan animasi GSAP.</p>
-                            <div class="project-links">
-                                <a href="#" class="btn secondary-btn small-btn"><i class="fas fa-eye"></i> Demo</a>
-                                <a href="#" class="btn secondary-btn small-btn"><i class="fab fa-github"></i> Code</a>
-                            </div>
-                        </div>
                     </div>
                 </div>
 
-                <div class="text-center mt-5">
-                    <a href="index.html" class="btn secondary-btn large-btn">
-                        <i class="fas fa-arrow-left"></i> Kembali ke Home
-                    </a>
+                <!-- ═══════════════════════════════ -->
+                <!-- ══ DATA SCIENCE ═══════════════ -->
+                <!-- ═══════════════════════════════ -->
+                <div class="category-group" data-category-group="data-science">
+                    <div class="category-header">
+                        <div class="category-header__icon" style="background: linear-gradient(135deg, #10B981, #059669);"><i class="fas fa-chart-line"></i></div>
+                        <div class="category-header__text">
+                            <h3>Data Science & Analytics</h3>
+                            <p>EDA, statistical analysis, visualisasi, dan business intelligence</p>
+                        </div>
+                        <span class="category-header__count">3 projects</span>
+                    </div>
+                    <div class="projects-grid">
+
+                        <!-- 5 ★ Sales Forecasting -->
+                        <div class="pcard" data-category="data-science">
+                            <div class="pcard__header" style="background: linear-gradient(135deg, #10B981, #047857);">
+                                <span class="pcard__type-badge pcard__type-badge--ds"><i class="fas fa-chart-pie"></i> Forecasting</span>
+                                <span class="pcard__featured" title="Featured"><i class="fas fa-star"></i></span>
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <div class="pcard__body">
+                                <h3 class="pcard__title">Sales Forecasting & Demand Planning</h3>
+                                <p class="pcard__desc">Time-series forecasting penjualan retail menggunakan Prophet & ARIMA. Dashboard interaktif dengan prediksi 30 hari ke depan, seasonal decomposition, dan actionable business insights.</p>
+                                <div class="pcard__meta">
+                                    <div class="pcard__meta-item"><i class="fas fa-clock"></i> <span>Durasi: <strong>2 bulan</strong></span></div>
+                                    <div class="pcard__meta-item"><i class="fas fa-tag"></i> <span>Jenis: <strong>Time Series / BI</strong></span></div>
+                                    <div class="pcard__meta-item"><i class="fas fa-users"></i> <span>Tim: <strong>Solo</strong></span></div>
+                                    <div class="pcard__meta-item"><i class="fas fa-database"></i> <span>Data: <strong>2 tahun</strong></span></div>
+                                </div>
+                                <div class="pcard__tech">
+                                    <span class="pcard__tag pcard__tag--primary">Python</span>
+                                    <span class="pcard__tag">Prophet</span>
+                                    <span class="pcard__tag">Plotly</span>
+                                    <span class="pcard__tag">Streamlit</span>
+                                    <span class="pcard__tag">Pandas</span>
+                                </div>
+                                <div class="pcard__links">
+                                    <a href="#" class="btn btn--ghost btn--sm"><i class="fas fa-external-link-alt"></i> Dashboard</a>
+                                    <a href="https://github.com/kemasmalfath" target="_blank" class="btn btn--secondary btn--sm"><i class="fab fa-github"></i> Code</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 6. E-Commerce Analysis -->
+                        <div class="pcard" data-category="data-science">
+                            <div class="pcard__header" style="background: linear-gradient(135deg, #06B6D4, #0E7490);">
+                                <span class="pcard__type-badge pcard__type-badge--ds"><i class="fas fa-chart-pie"></i> EDA</span>
+                                <i class="fas fa-magnifying-glass-chart"></i>
+                            </div>
+                            <div class="pcard__body">
+                                <h3 class="pcard__title">E-Commerce Customer Segmentation</h3>
+                                <p class="pcard__desc">RFM analysis & K-Means clustering untuk segmentasi pelanggan e-commerce. Menghasilkan 5 persona pelanggan dengan strategi marketing yang berbeda untuk tiap segmen.</p>
+                                <div class="pcard__meta">
+                                    <div class="pcard__meta-item"><i class="fas fa-clock"></i> <span>Durasi: <strong>1.5 bulan</strong></span></div>
+                                    <div class="pcard__meta-item"><i class="fas fa-tag"></i> <span>Jenis: <strong>Clustering / EDA</strong></span></div>
+                                    <div class="pcard__meta-item"><i class="fas fa-users"></i> <span>Tim: <strong>Solo</strong></span></div>
+                                    <div class="pcard__meta-item"><i class="fas fa-database"></i> <span>Data: <strong>50K+ rows</strong></span></div>
+                                </div>
+                                <div class="pcard__tech">
+                                    <span class="pcard__tag pcard__tag--primary">Python</span>
+                                    <span class="pcard__tag">Pandas</span>
+                                    <span class="pcard__tag">Matplotlib</span>
+                                    <span class="pcard__tag">Seaborn</span>
+                                    <span class="pcard__tag">K-Means</span>
+                                </div>
+                                <div class="pcard__links">
+                                    <a href="#" class="btn btn--ghost btn--sm"><i class="fas fa-external-link-alt"></i> Report</a>
+                                    <a href="https://github.com/kemasmalfath" target="_blank" class="btn btn--secondary btn--sm"><i class="fab fa-github"></i> Code</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 7. A/B Testing Analysis -->
+                        <div class="pcard" data-category="data-science">
+                            <div class="pcard__header" style="background: linear-gradient(135deg, #A855F7, #7E22CE);">
+                                <span class="pcard__type-badge pcard__type-badge--ds"><i class="fas fa-chart-pie"></i> Statistics</span>
+                                <i class="fas fa-flask-vial"></i>
+                            </div>
+                            <div class="pcard__body">
+                                <h3 class="pcard__title">A/B Testing Analysis Framework</h3>
+                                <p class="pcard__desc">Framework analisis A/B test otomatis dengan statistical significance testing (t-test, chi-square, bayesian). Termasuk sample size calculator dan automated reporting.</p>
+                                <div class="pcard__meta">
+                                    <div class="pcard__meta-item"><i class="fas fa-clock"></i> <span>Durasi: <strong>1 bulan</strong></span></div>
+                                    <div class="pcard__meta-item"><i class="fas fa-tag"></i> <span>Jenis: <strong>Statistical Analysis</strong></span></div>
+                                    <div class="pcard__meta-item"><i class="fas fa-users"></i> <span>Tim: <strong>Solo</strong></span></div>
+                                    <div class="pcard__meta-item"><i class="fas fa-bullseye"></i> <span>Confidence: <strong>95%</strong></span></div>
+                                </div>
+                                <div class="pcard__tech">
+                                    <span class="pcard__tag pcard__tag--primary">Python</span>
+                                    <span class="pcard__tag">SciPy</span>
+                                    <span class="pcard__tag">Statsmodels</span>
+                                    <span class="pcard__tag">Jupyter</span>
+                                </div>
+                                <div class="pcard__links">
+                                    <a href="#" class="btn btn--ghost btn--sm"><i class="fas fa-external-link-alt"></i> Notebook</a>
+                                    <a href="https://github.com/kemasmalfath" target="_blank" class="btn btn--secondary btn--sm"><i class="fab fa-github"></i> Code</a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
+
+                <!-- ═══════════════════════════════ -->
+                <!-- ══ WEB DEVELOPMENT ════════════ -->
+                <!-- ═══════════════════════════════ -->
+                <div class="category-group" data-category-group="web-dev">
+                    <div class="category-header">
+                        <div class="category-header__icon" style="background: linear-gradient(135deg, #0EA5E9, #0284C7);"><i class="fas fa-code"></i></div>
+                        <div class="category-header__text">
+                            <h3>Web Development</h3>
+                            <p>Full-stack applications, REST API, dan sistem informasi</p>
+                        </div>
+                        <span class="category-header__count">3 projects</span>
+                    </div>
+                    <div class="projects-grid">
+
+                        <!-- 8 ★ Employee Management -->
+                        <div class="pcard" data-category="web-dev">
+                            <div class="pcard__header" style="background: linear-gradient(135deg, #0EA5E9, #0369A1);">
+                                <span class="pcard__type-badge pcard__type-badge--web"><i class="fas fa-globe"></i> Full-Stack</span>
+                                <span class="pcard__featured" title="Featured"><i class="fas fa-star"></i></span>
+                                <i class="fas fa-building"></i>
+                            </div>
+                            <div class="pcard__body">
+                                <h3 class="pcard__title">Employee Management System</h3>
+                                <p class="pcard__desc">Sistem HRIS full-stack dengan modul absensi, penggajian, cuti, dan performance review. Role-based access control (Admin, Manager, Employee) dengan dashboard analytics.</p>
+                                <div class="pcard__meta">
+                                    <div class="pcard__meta-item"><i class="fas fa-clock"></i> <span>Durasi: <strong>4 bulan</strong></span></div>
+                                    <div class="pcard__meta-item"><i class="fas fa-tag"></i> <span>Jenis: <strong>Full-Stack / HRIS</strong></span></div>
+                                    <div class="pcard__meta-item"><i class="fas fa-users"></i> <span>Tim: <strong>3 orang</strong></span></div>
+                                    <div class="pcard__meta-item"><i class="fas fa-layer-group"></i> <span>Modul: <strong>5 modul</strong></span></div>
+                                </div>
+                                <div class="pcard__tech">
+                                    <span class="pcard__tag pcard__tag--primary">Laravel</span>
+                                    <span class="pcard__tag">PHP</span>
+                                    <span class="pcard__tag">MySQL</span>
+                                    <span class="pcard__tag">JavaScript</span>
+                                    <span class="pcard__tag">Bootstrap</span>
+                                </div>
+                                <div class="pcard__links">
+                                    <a href="#" class="btn btn--ghost btn--sm"><i class="fas fa-external-link-alt"></i> Demo</a>
+                                    <a href="https://github.com/kemasmalfath" target="_blank" class="btn btn--secondary btn--sm"><i class="fab fa-github"></i> Code</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 9. Task Management -->
+                        <div class="pcard" data-category="web-dev">
+                            <div class="pcard__header" style="background: linear-gradient(135deg, #F59E0B, #B45309);">
+                                <span class="pcard__type-badge pcard__type-badge--web"><i class="fas fa-globe"></i> Web App</span>
+                                <i class="fas fa-list-check"></i>
+                            </div>
+                            <div class="pcard__body">
+                                <h3 class="pcard__title">Collaborative Task Manager</h3>
+                                <p class="pcard__desc">Aplikasi manajemen tugas multi-user real-time dengan fitur Kanban board, deadline tracking, file attachments, dan notifikasi. Dilengkapi auth JWT.</p>
+                                <div class="pcard__meta">
+                                    <div class="pcard__meta-item"><i class="fas fa-clock"></i> <span>Durasi: <strong>2.5 bulan</strong></span></div>
+                                    <div class="pcard__meta-item"><i class="fas fa-tag"></i> <span>Jenis: <strong>Full-Stack / SaaS</strong></span></div>
+                                    <div class="pcard__meta-item"><i class="fas fa-users"></i> <span>Tim: <strong>2 orang</strong></span></div>
+                                    <div class="pcard__meta-item"><i class="fas fa-layer-group"></i> <span>Features: <strong>12+</strong></span></div>
+                                </div>
+                                <div class="pcard__tech">
+                                    <span class="pcard__tag pcard__tag--primary">JavaScript</span>
+                                    <span class="pcard__tag">React</span>
+                                    <span class="pcard__tag">Node.js</span>
+                                    <span class="pcard__tag">MongoDB</span>
+                                    <span class="pcard__tag">JWT</span>
+                                </div>
+                                <div class="pcard__links">
+                                    <a href="#" class="btn btn--ghost btn--sm"><i class="fas fa-external-link-alt"></i> Demo</a>
+                                    <a href="https://github.com/kemasmalfath" target="_blank" class="btn btn--secondary btn--sm"><i class="fab fa-github"></i> Code</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 10. RESTful API Library -->
+                        <div class="pcard" data-category="web-dev">
+                            <div class="pcard__header" style="background: linear-gradient(135deg, #6366F1, #4338CA);">
+                                <span class="pcard__type-badge pcard__type-badge--web"><i class="fas fa-globe"></i> Backend API</span>
+                                <i class="fas fa-server"></i>
+                            </div>
+                            <div class="pcard__body">
+                                <h3 class="pcard__title">Library RESTful API</h3>
+                                <p class="pcard__desc">Backend service perpustakaan digital dengan CRUD lengkap, pagination, search, auth (OAuth2), rate limiting, dan Swagger documentation. Clean architecture pattern.</p>
+                                <div class="pcard__meta">
+                                    <div class="pcard__meta-item"><i class="fas fa-clock"></i> <span>Durasi: <strong>1.5 bulan</strong></span></div>
+                                    <div class="pcard__meta-item"><i class="fas fa-tag"></i> <span>Jenis: <strong>REST API / Backend</strong></span></div>
+                                    <div class="pcard__meta-item"><i class="fas fa-users"></i> <span>Tim: <strong>Solo</strong></span></div>
+                                    <div class="pcard__meta-item"><i class="fas fa-layer-group"></i> <span>Endpoints: <strong>20+</strong></span></div>
+                                </div>
+                                <div class="pcard__tech">
+                                    <span class="pcard__tag pcard__tag--primary">Node.js</span>
+                                    <span class="pcard__tag">Express</span>
+                                    <span class="pcard__tag">PostgreSQL</span>
+                                    <span class="pcard__tag">Swagger</span>
+                                    <span class="pcard__tag">Jest</span>
+                                </div>
+                                <div class="pcard__links">
+                                    <a href="#" class="btn btn--ghost btn--sm"><i class="fas fa-external-link-alt"></i> API Docs</a>
+                                    <a href="https://github.com/kemasmalfath" target="_blank" class="btn btn--secondary btn--sm"><i class="fab fa-github"></i> Code</a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- ═══════════════════════════════ -->
+                <!-- ══ CYBERSECURITY ══════════════ -->
+                <!-- ═══════════════════════════════ -->
+                <div class="category-group" data-category-group="security">
+                    <div class="category-header">
+                        <div class="category-header__icon" style="background: linear-gradient(135deg, #EF4444, #DC2626);"><i class="fas fa-shield-alt"></i></div>
+                        <div class="category-header__text">
+                            <h3>Cybersecurity</h3>
+                            <p>Network security, IDS, dan vulnerability assessment</p>
+                        </div>
+                        <span class="category-header__count">2 projects</span>
+                    </div>
+                    <div class="projects-grid">
+
+                        <!-- 11 ★ Network IDS -->
+                        <div class="pcard" data-category="security">
+                            <div class="pcard__header" style="background: linear-gradient(135deg, #EF4444, #991B1B);">
+                                <span class="pcard__type-badge pcard__type-badge--sec"><i class="fas fa-bug"></i> IDS / ML</span>
+                                <span class="pcard__featured" title="Featured"><i class="fas fa-star"></i></span>
+                                <i class="fas fa-shield-halved"></i>
+                            </div>
+                            <div class="pcard__body">
+                                <h3 class="pcard__title">Network Intrusion Detection System</h3>
+                                <p class="pcard__desc">IDS berbasis ML yang mendeteksi 5 jenis serangan jaringan (DoS, Probe, R2L, U2R, Normal) menggunakan NSL-KDD dataset. Random Forest + real-time monitoring dashboard.</p>
+                                <div class="pcard__meta">
+                                    <div class="pcard__meta-item"><i class="fas fa-clock"></i> <span>Durasi: <strong>2.5 bulan</strong></span></div>
+                                    <div class="pcard__meta-item"><i class="fas fa-tag"></i> <span>Jenis: <strong>IDS / ML Security</strong></span></div>
+                                    <div class="pcard__meta-item"><i class="fas fa-users"></i> <span>Tim: <strong>Solo</strong></span></div>
+                                    <div class="pcard__meta-item"><i class="fas fa-bullseye"></i> <span>Akurasi: <strong>97.1%</strong></span></div>
+                                </div>
+                                <div class="pcard__tech">
+                                    <span class="pcard__tag pcard__tag--primary">Python</span>
+                                    <span class="pcard__tag">Scikit-Learn</span>
+                                    <span class="pcard__tag">Wireshark</span>
+                                    <span class="pcard__tag">Flask</span>
+                                    <span class="pcard__tag">NSL-KDD</span>
+                                </div>
+                                <div class="pcard__links">
+                                    <a href="#" class="btn btn--ghost btn--sm"><i class="fas fa-external-link-alt"></i> Report</a>
+                                    <a href="https://github.com/kemasmalfath" target="_blank" class="btn btn--secondary btn--sm"><i class="fab fa-github"></i> Code</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 12. Vulnerability Scanner -->
+                        <div class="pcard" data-category="security">
+                            <div class="pcard__header" style="background: linear-gradient(135deg, #F97316, #C2410C);">
+                                <span class="pcard__type-badge pcard__type-badge--sec"><i class="fas fa-bug"></i> Scanner</span>
+                                <i class="fas fa-magnifying-glass"></i>
+                            </div>
+                            <div class="pcard__body">
+                                <h3 class="pcard__title">Automated Vulnerability Scanner</h3>
+                                <p class="pcard__desc">Tool CLI otomatisasi scanning kerentanan jaringan & web app. Port scanning, service detection, CVE lookup, dan PDF report generator dengan severity rating.</p>
+                                <div class="pcard__meta">
+                                    <div class="pcard__meta-item"><i class="fas fa-clock"></i> <span>Durasi: <strong>1.5 bulan</strong></span></div>
+                                    <div class="pcard__meta-item"><i class="fas fa-tag"></i> <span>Jenis: <strong>Security Tool / CLI</strong></span></div>
+                                    <div class="pcard__meta-item"><i class="fas fa-users"></i> <span>Tim: <strong>Solo</strong></span></div>
+                                    <div class="pcard__meta-item"><i class="fas fa-layer-group"></i> <span>Checks: <strong>50+ CVEs</strong></span></div>
+                                </div>
+                                <div class="pcard__tech">
+                                    <span class="pcard__tag pcard__tag--primary">Python</span>
+                                    <span class="pcard__tag">Nmap</span>
+                                    <span class="pcard__tag">Kali Linux</span>
+                                    <span class="pcard__tag">Bash</span>
+                                    <span class="pcard__tag">ReportLab</span>
+                                </div>
+                                <div class="pcard__links">
+                                    <a href="#" class="btn btn--ghost btn--sm"><i class="fas fa-external-link-alt"></i> Report</a>
+                                    <a href="https://github.com/kemasmalfath" target="_blank" class="btn btn--secondary btn--sm"><i class="fab fa-github"></i> Code</a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
             </div>
         </section>
 
+        <div class="projects-back">
+            <a href="index.html" class="btn btn--secondary btn--lg">
+                <i class="fas fa-arrow-left"></i> Kembali ke Home
+            </a>
+        </div>
     </main>
 
-    <footer>
+    <footer class="footer">
         <div class="container">
-            <p>Dibuat oleh Kemas Muhammad Alfath Iskandar.</p>
+            <div class="footer__inner" style="text-align:center; padding: 32px 0;">
+                <p style="color: var(--text-tertiary); font-size: 0.9rem;">
+                    &copy; <span id="currentYear"></span> Kemas Muhammad Alfath Iskandar. All rights reserved.
+                </p>
+            </div>
         </div>
-        <a href="#" class="back-to-top" aria-label="Kembali ke atas"><i class="fas fa-chevron-up"></i></a>
     </footer>
 
+    <a href="#" class="back-to-top" id="backToTop" aria-label="Kembali ke atas"><i class="fas fa-chevron-up"></i></a>
+
     <script src="js/script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const projectCards = document.querySelectorAll('.pcard');
+            const categoryGroups = document.querySelectorAll('.category-group');
+            const countEl = document.getElementById('projectCount');
+
+            function updateCount(count) {
+                countEl.innerHTML = `Showing <strong>${count}</strong> project${count !== 1 ? 's' : ''}`;
+            }
+
+            filterButtons.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    filterButtons.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    const filter = btn.dataset.filter;
+                    let visibleCount = 0;
+
+                    if (filter === 'all') {
+                        projectCards.forEach(c => { c.classList.remove('hidden'); visibleCount++; });
+                        categoryGroups.forEach(g => g.style.display = '');
+                    } else {
+                        categoryGroups.forEach(g => {
+                            g.style.display = g.dataset.categoryGroup === filter ? '' : 'none';
+                        });
+                        projectCards.forEach(c => {
+                            if (c.dataset.category === filter) { c.classList.remove('hidden'); visibleCount++; }
+                            else { c.classList.add('hidden'); }
+                        });
+                    }
+                    updateCount(visibleCount);
+                });
+            });
+
+            updateCount(projectCards.length);
+        });
+    </script>
 </body>
 
 </html>
