@@ -313,6 +313,31 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     // =========================================
+    // 10. PROJECT FILTERS
+    // =========================================
+    const initProjectFilters = () => {
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const projectCards = document.querySelectorAll('.portfolio-item');
+        if (!filterButtons.length) return;
+        filterButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Update active state
+                filterButtons.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                const filter = btn.dataset.filter;
+                projectCards.forEach(card => {
+                    const category = card.dataset.category || 'all';
+                    if (filter === 'all' || filter === category) {
+                        card.style.display = '';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+    };
+
+    // =========================================
     // INITIALIZE ALL
     // =========================================
     initTheme();
@@ -324,4 +349,5 @@ document.addEventListener('DOMContentLoaded', () => {
     initContactForm();
     initBackToTop();
     initCurrentYear();
+    initProjectFilters();
 });
